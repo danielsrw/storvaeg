@@ -95,24 +95,18 @@
                                                 <a class="item-img-wrapper-link" href="product.php?id=<?php echo $row['p_id']; ?>">
                                                     <img class="img-fluid" src="assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="Product">
                                                 </a>
-                                                <div class="item-action-behaviors">
-                                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                                    <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                    <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                                </div>
                                             </div>
                                             <div class="item-content">
                                                 <div class="what-product-is">
                                                     <ul class="bread-crumb">
                                                         <li class="has-separator">
-                                                            <a href="shop-v1-root-category.html"><?php echo $row['tcat_name']; ?></a>
+                                                            <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
                                                         </li>
                                                         <li class="has-separator">
-                                                            <a href="shop-v2-sub-category.html"><?php echo $row['mcat_name']; ?></a>
+                                                            <a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row['mcat_name']; ?></a>
                                                         </li>
                                                         <li>
-                                                            <a href="shop-v3-sub-sub-category.html"><?php echo $row['ecat_name']; ?></a>
+                                                            <a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row['ecat_name']; ?></a>
                                                         </li>
                                                     </ul>
                                                     <h6 class="item-title">
