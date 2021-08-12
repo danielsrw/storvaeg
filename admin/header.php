@@ -116,6 +116,13 @@ $success_message1 = '';
                     </li>
 
 
+                    <li class="treeview <?php if( ($cur_page == 'company.php') || ($cur_page == 'company-add.php') || ($cur_page == 'company-edit.php') ) {echo 'active';} ?>">
+                        <a href="company.php">
+                            <i class="fa fa-hand-o-right"></i> <span>View / Add Company</span>
+                        </a>
+                    </li>
+
+
                     <li class="treeview <?php if( ($cur_page == 'product.php') || ($cur_page == 'product-add.php') || ($cur_page == 'product-edit.php') ) {echo 'active';} ?>">
                         <a href="product.php">
                             <i class="fa fa-hand-o-right"></i> <span>View / Add Products</span>

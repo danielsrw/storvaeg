@@ -73,8 +73,7 @@
 						                                $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
 				                                        $statement->execute();
 				                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-				                                        foreach ($result as $row) {
-				                                            ?>
+				                                        foreach ($result as $row) { ?>
 				                                            <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_b_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
 				                                        <?php }
 			                                        ?>
