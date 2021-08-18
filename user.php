@@ -4,11 +4,11 @@
 
 	include('partials/css.php');
 
-    include('controllers/AuthController.php')
+    include('controllers/UsersController.php')
 
 ?>
 
-	<title>STORVAEG - BUSINESS ACCOUNT</title>
+	<title>STORVAEG - USER ACCOUNT</title>
 </head>
 <body>
 
@@ -20,14 +20,14 @@
 	    <div class="page-style-a">
 	        <div class="container">
 	            <div class="page-intro">
-	                <h2>Business Account</h2>
+	                <h2>User Account</h2>
 	                <ul class="bread-crumb">
 	                    <li class="has-separator">
 	                        <i class="ion ion-md-home"></i>
 	                        <a href="index.php">Home</a>
 	                    </li>
 	                    <li class="is-marked">
-	                        <a href="account.php">Business Account</a>
+	                        <a href="account.php">User Account</a>
 	                    </li>
 	                </ul>
 	            </div>
@@ -60,7 +60,7 @@
                                     <label for="email">Email
                                         <span class="astk">*</span>
                                     </label>
-                                    <input type="email" id="email" name="cust_email" class="text-field" placeholder="Username / Email">
+                                    <input type="email" id="email" name="cust_email" class="text-field" placeholder="Email">
                                 </div>
                                 <div class="u-s-m-b-30">
                                     <label for="password">Password
@@ -101,70 +101,19 @@
                                         </label>
                                         <input type="text" id="fullname" name="cust_name" class="text-field" placeholder="Name">
                                     </div>
-                                    <div class="group-2">
+                                </div>
+                                <div class="group-inline u-s-m-b-30">
+                                    <div class="group-1 u-s-p-r-16">
                                         <label for="email">Email
                                             <span class="astk">*</span>
                                         </label>
                                         <input type="text" id="email" name="cust_email" class="text-field" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="group-inline u-s-m-b-30">
-                                    <div class="group-1 u-s-p-r-16">
-                                        <label for="company">Company Name
-                                            <span class="astk">*</span>
-                                        </label>
-                                        <input type="text" id="company" name="cust_cname" class="text-field" placeholder="Company Name">
                                     </div>
                                     <div class="group-2">
                                         <label for="phone">Phone Number
                                             <span class="astk">*</span>
                                         </label>
                                         <input type="text" id="phone" name="cust_phone" class="text-field" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <div class="u-s-m-b-30">
-                                    <label for="address">Address
-                                        <span class="astk">*</span>
-                                    </label>
-                                    <textarea class="text-area" id="address" name="cust_address"></textarea>
-                                </div>
-                                <div class="group-inline u-s-m-b-30">
-                                    <div class="group-1 u-s-p-r-16">
-                                        <label for="country">Country
-                                            <span class="astk">*</span>
-                                        </label>
-                                        <select id="country" name="cust_country" class="text-field">
-                                            <option>Choose country</option>
-                                            <?php
-                                                $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
-                                                $statement->execute();
-                                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-                                                foreach ($result as $row) { ?>
-                                                    <option value="<?php echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
-                                                <?php }
-                                            ?>
-                                            
-                                        </select>
-                                    </div>
-                                    <div class="group-2">
-                                        <label for="city">City
-                                            <span class="astk">*</span>
-                                        </label>
-                                        <input type="text" id="city" name="cust_city" class="text-field" placeholder="City">
-                                    </div>
-                                </div>
-                                <div class="group-inline u-s-m-b-30">
-                                    <div class="group-1 u-s-p-r-16">
-                                        <label for="state">State
-                                            <span class="astk">*</span>
-                                        </label>
-                                        <input type="text" id="state" name="cust_state" class="text-field" placeholder="State">
-                                    </div>
-                                    <div class="group-2">
-                                        <label for="zip">Zip Code
-                                            <span class="astk">*</span>
-                                        </label>
-                                        <input type="text" id="zip" name="cust_zip" class="text-field" placeholder="Zip Code">
                                     </div>
                                 </div>
                                 <div class="group-inline u-s-m-b-30">

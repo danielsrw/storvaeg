@@ -118,10 +118,12 @@
                                                 </div>
                                                 <div class="price-template">
                                                     <div class="item-new-price">
-                                                        <?php echo $row['p_current_price']; ?> RWF
+                                                        <?php echo number_format($row['p_current_price']); ?> RWF
                                                     </div>
                                                     <div class="item-old-price">
-                                                        <?php echo $row['p_old_price']; ?> RWF
+                                                        <?php if($row['p_old_price'] != ''): ?>
+                                                            <?php echo number_format($row['p_old_price']); ?> RWF
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>

@@ -159,7 +159,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="cart-price">
-                                                            <?php echo $arr_cart_p_current_price[$i]; ?> RWF
+                                                            <?php echo number_format($arr_cart_p_current_price[$i]); ?> RWF
                                                         </div>
                                                     </td>
                                                     <td>
@@ -179,7 +179,7 @@
                                                                 $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
                                                                 $table_total_price = $table_total_price + $row_total_price;
                                                             ?>
-                                                            <?php echo $row_total_price; ?>
+                                                            <?php echo number_format($row_total_price); ?> RWF
                                                         </div>
                                                     </td>
                                                     <td>
@@ -218,7 +218,7 @@
                                                     <h3 class="calc-h3 u-s-m-b-0">Total</h3>
                                                 </td>
                                                 <td>
-                                                    <span class="calc-text"><?php echo $table_total_price; ?> RWF</span>
+                                                    <span class="calc-text"><?php echo number_format($table_total_price); ?> RWF</span>
                                                 </td>
                                             </tr>
                                         </tbody>

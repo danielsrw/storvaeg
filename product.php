@@ -18,7 +18,7 @@
     }
 ?>
 
-	<title>STORVAEG - HOME</title>
+	<title>STORVAEG - <?php echo $p_name; ?></title>
 </head>
 <body>
 
@@ -78,7 +78,7 @@
 	                        <div class="section-1-title-breadcrumb-rating">
 	                            <div class="product-title">
 	                                <h1>
-	                                    <a href="single-product.html"><?php echo $p_name; ?></a>
+	                                    <a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $p_name; ?></a>
 	                                </h1>
 	                            </div>
 	                            <ul class="bread-crumb">
@@ -158,12 +158,12 @@
 	                        <form action="" method="post">
 		                        <div class="section-3-price-original-discount u-s-p-y-14">
 		                            <div class="price">
-		                                <h4><?php echo $p_current_price; ?> RWF</h4>
+		                                <h4><?php echo number_format($p_current_price); ?> RWF</h4>
 		                            </div>
 		                        	<?php if($p_old_price!=''): ?>
 			                            <div class="original-price">
 			                                <span>Original Price:</span>
-			                                <span><?php echo $p_old_price; ?> RWF</span>
+			                                <span><?php echo number_format($p_old_price); ?> RWF</span>
 			                            </div>
 		                            <?php endif; ?>
 		                        </div>
@@ -254,8 +254,10 @@
 	                                <input type="hidden" name="p_featured_photo" value="<?php echo $p_featured_photo; ?>">
 	                                <div>
 	                                    <button class="button button-outline-secondary" name="form_add_to_cart" type="submit">Add to cart</button>
-	                                    <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
-	                                    <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
+	                                    <form>
+	                                    	<script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+	                                    	<button class="button button-outline-secondary" type="button" onClick="payWithRave()">Pay Now</button>
+	                                    </form>
 	                                </div>
 		                        </div>
 	                        </form>
@@ -562,27 +564,27 @@
 	                                            <div class="pagination-review-number">
 	                                                <ul>
 	                                                    <li style="display: none">
-	                                                        <a href="single-product.html" title="Previous">
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>" title="Previous">
 	                                                            <i class="fas fa-angle-left"></i>
 	                                                        </a>
 	                                                    </li>
 	                                                    <li class="active">
-	                                                        <a href="single-product.html">1</a>
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>">1</a>
 	                                                    </li>
 	                                                    <li>
-	                                                        <a href="single-product.html">2</a>
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>">2</a>
 	                                                    </li>
 	                                                    <li>
-	                                                        <a href="single-product.html">3</a>
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>">3</a>
 	                                                    </li>
 	                                                    <li>
-	                                                        <a href="single-product.html">...</a>
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>">...</a>
 	                                                    </li>
 	                                                    <li>
-	                                                        <a href="single-product.html">10</a>
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>">10</a>
 	                                                    </li>
 	                                                    <li>
-	                                                        <a href="single-product.html" title="Next">
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>" title="Next">
 	                                                            <i class="fas fa-angle-right"></i>
 	                                                        </a>
 	                                                    </li>
@@ -610,198 +612,49 @@
 	                        </div>
 	                        <div class="slider-fouc">
 	                            <div class="products-slider owl-carousel" data-item="4">
-	                                <div class="item">
-	                                    <div class="image-container">
-	                                        <a class="item-img-wrapper-link" href="single-product.html">
-	                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-	                                        </a>
-	                                        <div class="item-action-behaviors">
-	                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-	                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-	                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-	                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-	                                        </div>
-	                                    </div>
-	                                    <div class="item-content">
-	                                        <div class="what-product-is">
-	                                            <ul class="bread-crumb">
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v1-root-category.html">Men's</a>
-	                                                </li>
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v2-sub-category.html">Tops</a>
-	                                                </li>
-	                                                <li>
-	                                                    <a href="shop-v3-sub-sub-category.html">Hoodies</a>
-	                                                </li>
-	                                            </ul>
-	                                            <h6 class="item-title">
-	                                                <a href="single-product.html">Casual Hoodie Full Cotton</a>
-	                                            </h6>
-	                                            <div class="item-stars">
-	                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-	                                                    <span style='width:0'></span>
-	                                                </div>
-	                                                <span>(0)</span>
-	                                            </div>
-	                                        </div>
-	                                        <div class="price-template">
-	                                            <div class="item-new-price">
-	                                                $55.00
-	                                            </div>
-	                                            <div class="item-old-price">
-	                                                $60.00
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="tag new">
-	                                        <span>NEW</span>
-	                                    </div>
-	                                </div>
-	                                <div class="item">
-	                                    <div class="image-container">
-	                                        <a class="item-img-wrapper-link" href="single-product.html">
-	                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-	                                        </a>
-	                                        <div class="item-action-behaviors">
-	                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-	                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-	                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-	                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-	                                        </div>
-	                                    </div>
-	                                    <div class="item-content">
-	                                        <div class="what-product-is">
-	                                            <ul class="bread-crumb">
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v1-root-category.html">Men's</a>
-	                                                </li>
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v2-sub-category.html">Outwear</a>
-	                                                </li>
-	                                                <li>
-	                                                    <a href="shop-v3-sub-sub-category.html">Jackets</a>
-	                                                </li>
-	                                            </ul>
-	                                            <h6 class="item-title">
-	                                                <a href="single-product.html">Fern Green Men's Jacket</a>
-	                                            </h6>
-	                                            <div class="item-stars">
-	                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-	                                                    <span style='width:0'></span>
-	                                                </div>
-	                                                <span>(0)</span>
-	                                            </div>
-	                                        </div>
-	                                        <div class="price-template">
-	                                            <div class="item-new-price">
-	                                                $55.00
-	                                            </div>
-	                                            <div class="item-old-price">
-	                                                $60.00
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="tag hot">
-	                                        <span>HOT</span>
-	                                    </div>
-	                                </div>
-	                                <div class="item">
-	                                    <div class="image-container">
-	                                        <a class="item-img-wrapper-link" href="single-product.html">
-	                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-	                                        </a>
-	                                        <div class="item-action-behaviors">
-	                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-	                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-	                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-	                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-	                                        </div>
-	                                    </div>
-	                                    <div class="item-content">
-	                                        <div class="what-product-is">
-	                                            <ul class="bread-crumb">
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v1-root-category.html">Men's</a>
-	                                                </li>
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v2-sub-category.html">Sunglasses</a>
-	                                                </li>
-	                                                <li>
-	                                                    <a href="shop-v3-sub-sub-category.html">Round</a>
-	                                                </li>
-	                                            </ul>
-	                                            <h6 class="item-title">
-	                                                <a href="single-product.html">Brown Dark Tan Round Double Bridge Sunglasses</a>
-	                                            </h6>
-	                                            <div class="item-stars">
-	                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-	                                                    <span style='width:0'></span>
-	                                                </div>
-	                                                <span>(0)</span>
-	                                            </div>
-	                                        </div>
-	                                        <div class="price-template">
-	                                            <div class="item-new-price">
-	                                                $55.00
-	                                            </div>
-	                                            <div class="item-old-price">
-	                                                $60.00
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="tag hot">
-	                                        <span>HOT</span>
-	                                    </div>
-	                                </div>
-	                                <div class="item">
-	                                    <div class="image-container">
-	                                        <a class="item-img-wrapper-link" href="single-product.html">
-	                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-	                                        </a>
-	                                        <div class="item-action-behaviors">
-	                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-	                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-	                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-	                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-	                                        </div>
-	                                    </div>
-	                                    <div class="item-content">
-	                                        <div class="what-product-is">
-	                                            <ul class="bread-crumb">
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v1-root-category.html">Men's</a>
-	                                                </li>
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v2-sub-category.html">Sunglasses</a>
-	                                                </li>
-	                                                <li>
-	                                                    <a href="shop-v3-sub-sub-category.html">Round</a>
-	                                                </li>
-	                                            </ul>
-	                                            <h6 class="item-title">
-	                                                <a href="single-product.html">Black Round Double Bridge Sunglasses</a>
-	                                            </h6>
-	                                            <div class="item-stars">
-	                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-	                                                    <span style='width:0'></span>
-	                                                </div>
-	                                                <span>(0)</span>
-	                                            </div>
-	                                        </div>
-	                                        <div class="price-template">
-	                                            <div class="item-new-price">
-	                                                $55.00
-	                                            </div>
-	                                            <div class="item-old-price">
-	                                                $60.00
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="tag hot">
-	                                        <span>HOT</span>
-	                                    </div>
-	                                </div>
+	                            	<?php
+				                    	$statement = $pdo->prepare("SELECT * FROM tbl_product t1 JOIN tbl_end_category t2 ON t1.ecat_id = t2.ecat_id JOIN tbl_mid_category t3 ON t2.mcat_id = t3.mcat_id JOIN tbl_top_category t4 ON t3.tcat_id = t4.tcat_id ORDER BY t1.p_id DESC");
+		                                $statement->execute();
+		                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		                                foreach ($result as $row) {
+		                                    $i++; ?>
+			                                <div class="item">
+			                                    <div class="image-container">
+			                                        <a class="item-img-wrapper-link" href="product.php?id=<?php echo $row['p_id']; ?>">
+			                                            <img class="img-fluid" src="assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="Product">
+			                                        </a>
+			                                    </div>
+			                                    <div class="item-content">
+			                                        <div class="what-product-is">
+			                                            <ul class="bread-crumb">
+	                                                        <li class="has-separator">
+	                                                            <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+	                                                        </li>
+	                                                        <li class="has-separator">
+	                                                            <a href="product-category.php?id=<?php echo $row['mcat_id']; ?>&type=mid-category"><?php echo $row['mcat_name']; ?></a>
+	                                                        </li>
+	                                                        <li>
+	                                                            <a href="product-category.php?id=<?php echo $row['ecat_id']; ?>&type=end-category"><?php echo $row['ecat_name']; ?></a>
+	                                                        </li>
+	                                                    </ul>
+			                                            <h6 class="item-title">
+	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+	                                                    </h6>
+			                                        </div>
+			                                        <div class="price-template">
+			                                            <div class="item-new-price">
+			                                                <?php echo number_format($row['p_current_price']); ?> RWF
+			                                            </div>
+			                                            <div class="item-old-price">
+			                                                <?php if($row['p_old_price'] != ''): ?>
+	                                                            <?php echo number_format($row['p_old_price']); ?> RWF
+	                                                        <?php endif; ?>
+			                                            </div>
+			                                        </div>
+			                                    </div>
+			                                </div>
+				                        <?php }
+				                    ?>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -817,7 +670,7 @@
 	                            <div class="products-slider owl-carousel" data-item="4">
 	                                <div class="item">
 	                                    <div class="image-container">
-	                                        <a class="item-img-wrapper-link" href="single-product.html">
+	                                        <a class="item-img-wrapper-link" href="product.php?id=<?php echo $row['p_id']; ?>">
 	                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
 	                                        </a>
 	                                        <div class="item-action-behaviors">
@@ -841,7 +694,7 @@
 	                                                </li>
 	                                            </ul>
 	                                            <h6 class="item-title">
-	                                                <a href="single-product.html">Maire Battlefield Jeep Men's Jacket</a>
+	                                                <a href="product.php?id=<?php echo $row['p_id']; ?>">Maire Battlefield Jeep Men's Jacket</a>
 	                                            </h6>
 	                                            <div class="item-stars">
 	                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
@@ -877,5 +730,43 @@
         <?php include('partials/footer.php') ?>
 		
 	</div>
+
+	<script>
+	    const API_publicKey = "FLWPUBK-16ebf60c396c9d675e0c511133b052ae-X";
+
+	    function payWithRave() {
+	        var x = getpaidSetup({
+	            PBFPubKey: API_publicKey,
+	            customer_email: "user@example.com",
+	            amount: 2000,
+	            currency: "RWF",
+	            txref: "rave-123456",
+	            subaccounts: [
+	              {
+	                id: "RS_D87A9EE339AE28BFA2AE86041C6DE70E" // This assumes you have setup your commission on the dashboard.
+	              }
+	            ],
+	            meta: [{
+	                metaname: "flightID",
+	                metavalue: "AP1234"
+	            }],
+	            onclose: function() {},
+	            callback: function(response) {
+	                var txref = response.data.txRef; // collect flwRef returned and pass to a                   server page to complete status check.
+	                console.log("This is the response returned after a charge", response);
+	                if (
+	                    response.data.chargeResponseCode == "00" ||
+	                    response.data.chargeResponseCode == "0"
+	                ) {
+	                    // redirect to a success page
+	                } else {
+	                    // redirect to a failure page.
+	                }
+
+	                x.close(); // use this to close the modal immediately after payment.
+	            }
+	        });
+	    }
+	</script>
 	
 	<?php include('partials/js.php') ?>

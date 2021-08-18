@@ -44,7 +44,7 @@
 				                <!-- Billing Address -->
 				                <div class="col-lg-6">
 				                    <div class="login-wrapper">
-				                        <h2 class="account-h2 u-s-m-b-20">Update Billing Address</h2>
+				                        <h2 class="account-h2 u-s-m-b-20">Billing Address</h2>
 				                        <div>
 				                            <div class="u-s-m-b-30">
 				                                <label for="fullname">Full Name
@@ -110,7 +110,7 @@
 				                <!-- Update Shipping Address -->
 				                <div class="col-lg-6">
 				                    <div class="reg-wrapper">
-				                        <h2 class="account-h2 u-s-m-b-20">Update Shipping Address</h2>
+				                        <h2 class="account-h2 u-s-m-b-20">Shipping Address</h2>
 				                        <div>
 				                            <div class="u-s-m-b-30">
 				                                <label for="fullname">Full Name

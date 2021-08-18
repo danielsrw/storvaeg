@@ -5,12 +5,12 @@
             <nav>
                 <ul class="primary-nav g-nav">
                     <li>
-                        <a href="tel:+111444989">
+                        <a href="tel:+250781862349">
                             <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
                             Telephone:+250 781 862 349</a>
                     </li>
                     <li>
-                        <a href="mailto:contact@domain.com">
+                        <a href="mailto:storvaegrwanda@gmail.com">
                             <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
                             E-mail: storvaegrwanda@gmail.com
                         </a>
@@ -57,7 +57,13 @@
                                     <li>
                                         <a href="account.php">
                                             <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                            Login / Signup
+                                            Business Account
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="user.php">
+                                            <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
+                                            User Account
                                         </a>
                                     </li>
                                 <?php }
@@ -123,9 +129,9 @@
                                                     $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
                                                     $table_total_price = $table_total_price + $row_total_price;
                                                 }
-                                                echo $table_total_price . " RWF";
+                                                echo number_format($table_total_price) . " RWF";
                                             } else {
-                                                echo '0.00';
+                                                echo number_format('0') . "RWF";
                                             }
                                         ?>)
                                     </span>

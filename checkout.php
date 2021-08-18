@@ -303,7 +303,7 @@
                                                                     $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
                                                                     $table_total_price = $table_total_price + $row_total_price;
                                                                 ?>
-                                                                <?php echo $row_total_price; ?> RWF
+                                                                <?php echo number_format($row_total_price); ?> RWF
                                                             </h6>
                                                         </td>
                                                     </tr>
@@ -315,7 +315,7 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td>
-                                                        <h3 class="order-h3"><?php echo $table_total_price; ?> RWF</h3>
+                                                        <h3 class="order-h3"><?php echo number_format($table_total_price); ?> RWF</h3>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -344,7 +344,7 @@
                                                     <td></td>
                                                     <td>
                                                         <h3 class="order-h3">
-                                                            <?php echo $shipping_cost; ?> RWF
+                                                            <?php echo number_format($shipping_cost); ?> RWF
                                                         </h3>
                                                     </td>
                                                 </tr>
@@ -359,7 +359,7 @@
                                                             <?php
                                                                 $final_total = $table_total_price+$shipping_cost;
                                                             ?>
-                                                            <?php echo $final_total; ?> RWF
+                                                            <?php echo number_format($final_total); ?> RWF
                                                         </h3>
                                                     </td>
                                                 </tr>
@@ -393,45 +393,58 @@
                                                 You must have to fill up all the billing and shipping information from your dashboard panel in order to checkout the order. Please fill up the information going to <a href="billing-shipping.php" style="color: red;">this link.</a>
                                             </h6>
                                         <?php else: ?>
-                                            <div>
-                                                <label for="payment-method">Select Payment method
-                                                    <span class="astk">*</span>
-                                                </label>
-                                                <div class="select-box-wrapper">
-                                                    <select class="select-box" id="payment-method">
-                                                        <option selected="selected" value="">Choose payment method</option>
-                                                        <option value="PayPal">PayPal</option>
-                                                        <option value="Bank Deposit">Bank Deposit</option>
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <br>
-                                                <form action="payment/bank/init.php" method="post" id="bank_form">
-                                                    <input type="hidden" name="amount" value="<?php echo $final_total; ?>">
-                                                    <label for="order-notes">Send to this Details</label>
-                                                    <br>
-                                                    <?php
-                                                        $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-                                                        $statement->execute();
-                                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                                        foreach ($result as $row) {
-                                                            echo nl2br($row['bank_detail']);
-                                                        }
-                                                    ?>
-                                                    <div>
-                                                        <label for="order-notes">Transaction Info</label>
-                                                        <textarea class="text-area" id="order-notes" name="transaction_info" name="form3"></textarea>
-                                                    </div>
+                                            <div class="u-s-m-b-45">
+                                                <form>
+                                                    <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+                                                    <button type="button" onClick="payWithRave()" class="button button-primary w-100">
+                                                        Place to Order
+                                                    </button>
                                                 </form>
-                                                <br>
-                                                <br>
-                                                <input type="submit" name="form3" class="button button-outline-secondary" value="Place Order">
                                             </div>
                                         <?php endif; ?>
                                     </div>
                                 </div>
                                 <!-- Checkout /- -->
                             </div>
+                            <script>
+                                const API_publicKey = "FLWPUBK-16ebf60c396c9d675e0c511133b052ae-X";
+
+                                function payWithRave() {
+                                    var x = getpaidSetup({
+                                        PBFPubKey: API_publicKey,
+                                        customer_email: "user@example.com",
+                                        amount: <?php echo $final_total; ?>,
+                                        currency: "RWF",
+                                        txref: "rave-123456",
+                                        subaccounts: [
+                                          {
+                                            id: "RS_D87A9EE339AE28BFA2AE86041C6DE70E" // This assumes you have setup your commission on the dashboard.
+                                          }
+                                        ],
+                                        meta: [{
+                                            metaname: "flightID",
+                                            metavalue: "AP1234"
+                                        }],
+                                        onclose: function() {},
+                                        callback: function(response) {
+                                            var txref = response.data.txRef; // collect flwRef returned and pass to a                   server page to complete status check.
+                                            console.log("This is the response returned after a charge", response);
+                                            if (
+                                                response.data.chargeResponseCode == "00" ||
+                                                response.data.chargeResponseCode == "0"
+                                            ) {
+                                                // redirect to a success page
+                                                window.location.href = "payment_success.php";
+                                            } else {
+                                                // redirect to a failure page.
+                                                window.location.href = "checkout.php";
+                                            }
+
+                                            x.close(); // use this to close the modal immediately after payment.
+                                        }
+                                    });
+                                }
+                            </script>
                         <?php endif; ?>
                     </div>
                 </div>

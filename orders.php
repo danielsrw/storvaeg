@@ -58,42 +58,158 @@
 				                                        <th>Date</th>
 				                                    </tr>
 				                                </thead>
+				                                <?php
+									                /* ===================== Pagination Code Starts ================== */
+									                $adjacents = 5;
+
+									                $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE customer_email=? ORDER BY id DESC");
+									                $statement->execute(array($_SESSION['customer']['cust_email']));
+									                $total_pages = $statement->rowCount();
+
+									                $targetpage = BASE_URL.'customer-order.php';
+									                $limit = 10;
+									                $page = @$_GET['page'];
+									                if($page) 
+									                    $start = ($page - 1) * $limit;
+									                else
+									                    $start = 0;
+									                
+									                
+									                $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE customer_email=? ORDER BY id DESC LIMIT $start, $limit");
+									                $statement->execute(array($_SESSION['customer']['cust_email']));
+									                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+									               
+									                
+									                if ($page == 0) $page = 1;
+									                $prev = $page - 1;
+									                $next = $page + 1;
+									                $lastpage = ceil($total_pages/$limit);
+									                $lpm1 = $lastpage - 1;   
+									                $pagination = "";
+									                if($lastpage > 1)
+									                {   
+									                    $pagination .= "<div class=\"pagination\">";
+									                    if ($page > 1) 
+									                        $pagination.= "<a href=\"$targetpage?page=$prev\">&#171; previous</a>";
+									                    else
+									                        $pagination.= "<span class=\"disabled\">&#171; previous</span>";    
+									                    if ($lastpage < 7 + ($adjacents * 2))
+									                    {   
+									                        for ($counter = 1; $counter <= $lastpage; $counter++)
+									                        {
+									                            if ($counter == $page)
+									                                $pagination.= "<span class=\"current\">$counter</span>";
+									                            else
+									                                $pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+									                        }
+									                    }
+									                    elseif($lastpage > 5 + ($adjacents * 2))
+									                    {
+									                        if($page < 1 + ($adjacents * 2))        
+									                        {
+									                            for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++)
+									                            {
+									                                if ($counter == $page)
+									                                    $pagination.= "<span class=\"current\">$counter</span>";
+									                                else
+									                                    $pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+									                            }
+									                            $pagination.= "...";
+									                            $pagination.= "<a href=\"$targetpage?page=$lpm1\">$lpm1</a>";
+									                            $pagination.= "<a href=\"$targetpage?page=$lastpage\">$lastpage</a>";       
+									                        }
+									                        elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2))
+									                        {
+									                            $pagination.= "<a href=\"$targetpage?page=1\">1</a>";
+									                            $pagination.= "<a href=\"$targetpage?page=2\">2</a>";
+									                            $pagination.= "...";
+									                            for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++)
+									                            {
+									                                if ($counter == $page)
+									                                    $pagination.= "<span class=\"current\">$counter</span>";
+									                                else
+									                                    $pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+									                            }
+									                            $pagination.= "...";
+									                            $pagination.= "<a href=\"$targetpage?page=$lpm1\">$lpm1</a>";
+									                            $pagination.= "<a href=\"$targetpage?page=$lastpage\">$lastpage</a>";       
+									                        }
+									                        else
+									                        {
+									                            $pagination.= "<a href=\"$targetpage?page=1\">1</a>";
+									                            $pagination.= "<a href=\"$targetpage?page=2\">2</a>";
+									                            $pagination.= "...";
+									                            for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++)
+									                            {
+									                                if ($counter == $page)
+									                                    $pagination.= "<span class=\"current\">$counter</span>";
+									                                else
+									                                    $pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+									                            }
+									                        }
+									                    }
+									                    if ($page < $counter - 1) 
+									                        $pagination.= "<a href=\"$targetpage?page=$next\">next &#187;</a>";
+									                    else
+									                        $pagination.= "<span class=\"disabled\">next &#187;</span>";
+									                    $pagination.= "</div>\n";       
+									                }
+									                /* ===================== Pagination Code Ends ================== */
+									            ?>
 				                                <tbody>
-				                                    <tr>
-				                                        <td>
-				                                            <div class="cart-anchor-image">
-				                                                <a href="single-product.html">
-				                                                    <img src="images/product/product@1x.jpg" alt="Product">
-				                                                    <h6>Casual Hoodie Full Cotton</h6>
-				                                                </a>
-				                                            </div>
-				                                        </td>
-				                                        <td>
-				                                            <div class="cart-price">
-				                                                100, 000 RWF
-				                                            </div>
-				                                        </td>
-				                                        <td>
-				                                            <div class="cart-stock">
-				                                                <span class="badge badge-success">Pending</span>
-				                                            </div>
-				                                        </td>
-				                                        <td>
-				                                            <div class="cart-stock">
-				                                                Bank deposit
-				                                            </div>
-				                                        </td>
-				                                        <td>
-				                                            <div class="cart-stock">
-				                                                1628663508
-				                                            </div>
-				                                        </td>
-				                                        <td>
-				                                            <div class="cart-stock">
-				                                                2021-08-11 10:31:48
-				                                            </div>
-				                                        </td>
-				                                    </tr>
+				                                	<?php
+		                                                $tip = $page*10-10;
+					                                    foreach ($result as $row) {
+					                                        $tip++;
+					                                        ?>
+						                                    <tr>
+						                                        <td>
+						                                        	<?php
+						                                                $statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
+						                                                $statement1->execute(array($row['payment_id']));
+						                                                $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+						                                                foreach ($result1 as $row1) {
+						                                                	echo "<div class='cart-anchor-image'>";
+						                                                		echo "<a href=''>";
+						                                                			echo "<h6>" . $row1['product_name'] ."</h6>";
+						                                                		echo "</a>";
+						                                                	echo "</div>";
+								                                        }
+								                                    ?>
+						                                        </td>
+						                                        <td>
+						                                            <div class="cart-price">
+						                                                <?php echo number_format($row['paid_amount']); ?> RWF
+						                                            </div>
+						                                        </td>
+						                                        <td>
+						                                            <div class="cart-stock">
+						                                                <span class="badge badge-success">
+						                                                	<?php echo $row['payment_status']; ?>
+						                                                </span>
+						                                            </div>
+						                                        </td>
+						                                        <td>
+						                                            <div class="cart-stock">
+						                                                <?php echo $row['payment_method']; ?>
+						                                            </div>
+						                                        </td>
+						                                        <td>
+						                                            <div class="cart-stock">
+						                                                <?php echo $row['txnid']; ?>
+						                                            </div>
+						                                        </td>
+						                                        <td>
+						                                            <div class="cart-stock">
+						                                                <?php
+																			$date=date_create($row['payment_date']);
+																			echo date_format($date,"Y/m/d H:i:s");
+																		?>
+						                                            </div>
+						                                        </td>
+						                                    </tr>
+						                                <?php }
+				                                	?>
 				                                </tbody>
 				                            </table>
 				                        </div>
