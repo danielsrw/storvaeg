@@ -394,12 +394,47 @@
                                             </h6>
                                         <?php else: ?>
                                             <div class="u-s-m-b-45">
-                                                <form>
+                                                <div class="col-md-12 form-group">
+                                                    <label for="select-country">Select Payment menthod
+                                                        <span class="astk">*</span>
+                                                    </label>
+                                                    <div class="select-box-wrapper">
+                                                        <select id="country" name="cust_b_country" class="text-field">
+                                                            <option value="">Select a method</option>
+                                                            <option value="PayPal">PayPal</option>
+                                                            <option value="Bank Deposit">Bank Deposit</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <form action="payment/bank/init.php" method="post" id="bank_form">
+                                                    <input type="hidden" name="amount" value="<?php echo $final_total; ?>">
+                                                    <div class="col-md-12 form-group">
+                                                        <label for="state">Send to this detail
+                                                            <span class="astk">*</span>
+                                                        </label>
+                                                        <p>
+                                                            Bank Name: EQUITY BANK <br>
+                                                            Account Number: 1222320234444 <br>
+                                                            Branch Name: Downtowns <br>
+                                                            Country: RWANDA
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <label for="contact-message">Transaction Information:</label>
+                                                        <textarea name="transaction_info" class="text-area" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <button type="submit" name="form3" onClick="payWithRave()" class="button button-primary w-100">Pay Now</button>
+                                                    </div>
+                                                </form>
+
+                                                <!-- <form>
                                                     <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
                                                     <button type="button" onClick="payWithRave()" class="button button-primary w-100">
                                                         Place to Order
                                                     </button>
-                                                </form>
+                                                </form> -->
                                             </div>
                                         <?php endif; ?>
                                     </div>

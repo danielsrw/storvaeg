@@ -218,7 +218,9 @@
                                                     <h3 class="calc-h3 u-s-m-b-0">Total</h3>
                                                 </td>
                                                 <td>
-                                                    <span class="calc-text"><?php echo number_format($table_total_price); ?> RWF</span>
+                                                    <span class="calc-text">
+                                                        <?php echo number_format($table_total_price); ?> RWF
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </tbody>

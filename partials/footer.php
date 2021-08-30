@@ -2,9 +2,6 @@
     <div class="container">
         <!-- Outer-Footer -->
         <div class="outer-footer-wrapper u-s-p-y-80">
-            <h6>
-                For special offers and other discount information
-            </h6>
             <h1>
                 Subscribe to our Newsletter
             </h1>
@@ -26,13 +23,13 @@
                         <h6>CUSTOMER SERVICE</h6>
                         <ul>
                             <li>
-                                <a href="faq.html">FAQs</a>
+                                <a href="faq.php">FAQs</a>
                             </li>
                             <li>
-                                <a href="track-order.html">Track Order</a>
+                                <a href="track-order.php">Track Order</a>
                             </li>
                             <li>
-                                <a href="terms-and-conditions.html">Terms & Conditions</a>
+                                <a href="terms-and-conditions.php">Terms & Conditions</a>
                             </li>
                         </ul>
                     </div>
@@ -42,13 +39,13 @@
                         <h6>COMPANY</h6>
                         <ul>
                             <li>
-                                <a href="home.html">Home</a>
+                                <a href="home.php">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="about.php">About</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="contact.php">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -58,13 +55,10 @@
                         <h6>INFORMATION</h6>
                         <ul>
                             <li>
-                                <a href="store-directory.html">Categories Directory</a>
+                                <a href="shop.php">Shop</a>
                             </li>
                             <li>
-                                <a href="wishlist.html">My Wishlist</a>
-                            </li>
-                            <li>
-                                <a href="cart.html">My Cart</a>
+                                <a href="cart.php">My Cart</a>
                             </li>
                         </ul>
                     </div>
@@ -73,21 +67,22 @@
                     <div class="footer-list">
                         <h6>Address</h6>
                         <ul>
-                            <li>
+                            <!-- <li>
                                 <i class="fas fa-location-arrow u-s-m-r-9"></i>
                                 <span>819 Sugar Camp Road, West Concord, MN 55985</span>
-                            </li>
+                            </li> -->
                             <li>
-                                <a href="tel:+923086561801">
+                                <a href="tel:+250781862349">
                                     <i class="fas fa-phone u-s-m-r-9"></i>
-                                    <span>+111-444-989</span>
+                                    <span>(+250) 781 862 349</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:contact@domain.com">
+                                <a href="mailto:storvaegrwanda@gmail.com">
                                     <i class="fas fa-envelope u-s-m-r-9"></i>
                                     <span>
-                                        contact@domain.com</span>
+                                        storvaegrwanda@gmail.com
+                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -107,10 +102,15 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
                         </a>
                     </li>
                     <li>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
                         <a href="#">
                             <i class="fab fa-google-plus-g"></i>
                         </a>
@@ -134,11 +134,11 @@
                         <a href="#">
                             <i class="fab fa-youtube"></i>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
-            <p class="copyright-text">Copyright &copy; 2018
-                <a href="home.html">Groover</a> All Right Reserved
+            <p class="copyright-text">Developed &copy; 2021
+                <a href="index.php">STORVAEG</a> All Right Reserved
             </p>
         </div>
     </div>

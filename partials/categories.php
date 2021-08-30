@@ -77,15 +77,15 @@
         <form class="facet-form" action="#" method="post">
             <!-- Final-Result -->
             <div class="amount-result clearfix">
-                <div class="price-from">$0</div>
-                <div class="price-to">$3000</div>
+                <div class="price-from">RWF 0</div>
+                <div class="price-to">RWF 3000</div>
             </div>
             <!-- Final-Result /- -->
             <!-- Range-Slider  -->
             <div class="price-filter"></div>
             <!-- Range-Slider /- -->
             <!-- Range-Manipulator -->
-            <div class="price-slider-range" data-min="0" data-max="5000" data-default-low="0" data-default-high="3000" data-currency="$"></div>
+            <div class="price-slider-range" data-min="0" data-max="5000" data-default-low="0" data-default-high="3000" data-currency="RWF "></div>
             <!-- Range-Manipulator /- -->
             <button type="submit" class="button button-primary">Filter</button>
         </form>

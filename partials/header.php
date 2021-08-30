@@ -29,17 +29,20 @@
                                 <li>
                                     <a href="cart.php">
                                         <i class="fas fa-cog u-s-m-r-9"></i>
-                                        My Cart</a>
+                                        My Cart
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="wishlist.php">
+                                    <!-- <a href="wishlist.php">
                                         <i class="far fa-heart u-s-m-r-9"></i>
-                                        My Wishlist</a>
+                                        My Wishlist
+                                    </a> -->
                                 </li>
                                 <li>
                                     <a href="checkout.php">
                                         <i class="far fa-check-circle u-s-m-r-9"></i>
-                                        Checkout</a>
+                                        Checkout
+                                    </a>
                                 </li>
                                     <li>
                                         <a href="dashboard.php">
@@ -82,7 +85,7 @@
                 <div class="col-lg-3 col-md-9 col-sm-6">
                     <div class="brand-logo text-lg-center">
                         <a href="index.php">
-                            <img src="images/main-logo/groover-branding-1.png" alt="Groover Brand Logo" class="app-brand-logo">
+                            <img src="images/main-logo/storvaeg.png" alt="Storvaeg Logo" class="app-brand-logo w-100">
                         </a>
                     </div>
                 </div>
@@ -102,11 +105,11 @@
                                     <i class="ion ion-md-home u-c-brand"></i>
                                 </a>
                             </li>
-                            <li class="u-d-none-lg">
+                            <!-- <li class="u-d-none-lg">
                                 <a href="wishlist.php">
                                     <i class="far fa-heart"></i>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a id="mini-cart-trigger" href="cart.php">
                                     <i class="ion ion-md-basket"></i>

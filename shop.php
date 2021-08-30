@@ -100,13 +100,16 @@
                                                 <div class="what-product-is">
                                                     <ul class="bread-crumb">
                                                         <li class="has-separator">
-                                                            <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+                                                            <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?>
+                                                            </a>
                                                         </li>
                                                         <li class="has-separator">
-                                                            <a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row['mcat_name']; ?></a>
+                                                            <a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row['mcat_name']; ?>
+                                                            </a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row['ecat_name']; ?></a>
+                                                            <a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row['ecat_name']; ?>
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                     <h6 class="item-title">
@@ -126,6 +129,17 @@
                                                         <?php endif; ?>
                                                     </div>
                                                 </div>
+                                                <?php if($row['p_old_price'] != ''): ?>
+                                                    <div class="tag discount">
+                                                        <?php
+                                                            $save = $row['p_old_price'] - $row['p_current_price'];
+                                                            $discount = $save * 100 / $row['p_old_price'];
+                                                        ?>
+                                                        <span>
+                                                            <?php echo number_format($discount); ?>%
+                                                        </span>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -140,27 +154,27 @@
                         <div class="pagination-number">
                             <ul>
                                 <li style="display: none">
-                                    <a href="shop-v1-root-category.html" title="Previous">
+                                    <a href="" title="Previous">
                                         <i class="fa fa-angle-left"></i>
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <a href="shop-v1-root-category.html">1</a>
+                                    <a href="">1</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">2</a>
+                                    <a href="">2</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">3</a>
+                                    <a href="">3</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">...</a>
+                                    <a href="">...</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">10</a>
+                                    <a href="">10</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html" title="Next">
+                                    <a href="" title="Next">
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                                 </li>

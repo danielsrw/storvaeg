@@ -187,18 +187,18 @@
 	                    </div>
 	                    <div class="contact-us-wrapper">
 	                        <h1 class="contact-h1">Contact Us</h1>
-	                        <div class="contact-material u-s-m-b-16">
+	                        <!-- <div class="contact-material u-s-m-b-16">
 	                            <h6>Location</h6>
 	                            <span>4441 Jett Lane</span>
 	                            <span>Bellflower, CA 90706</span>
-	                        </div>
+	                        </div> -->
 	                        <div class="contact-material u-s-m-b-16">
 	                            <h6>Email</h6>
-	                            <span>contact@domain.com</span>
+	                            <span>storvaegrwanda@gmail.com</span>
 	                        </div>
 	                        <div class="contact-material u-s-m-b-16">
 	                            <h6>Telephone</h6>
-	                            <span>+111-444-989</span>
+	                            <span>(+250) 781 862 349</span>
 	                        </div>
 	                    </div>
 	                </div>

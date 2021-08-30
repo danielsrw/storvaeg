@@ -51,7 +51,7 @@
                                     <tr>
                                         <td>
                                             <div class="cart-anchor-image">
-                                                <a href="single-product.html">
+                                                <a href="single-product.php">
                                                     <img src="images/product/product@1x.jpg" alt="Product">
                                                     <h6>Casual Hoodie Full Cotton</h6>
                                                 </a>

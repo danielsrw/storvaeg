@@ -119,12 +119,6 @@
 					                                    <a class="item-img-wrapper-link" href="product.php?id=<?php echo $row['p_id']; ?>">
 					                                        <img class="img-fluid" src="assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="Product">
 					                                    </a>
-					                                    <div class="item-action-behaviors">
-					                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-					                                        <a class="item-mail" href="javascript:void(0)">Mail</a>
-					                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-					                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-					                                    </div>
 					                                </div>
 					                                <div class="item-content">
 					                                    <div class="what-product-is">
@@ -149,6 +143,17 @@
 		                                                        <?php endif; ?>
 		                                                    </div>
 		                                                </div>
+		                                                <?php if($row['p_old_price'] != ''): ?>
+		                                                    <div class="tag discount">
+		                                                        <?php
+		                                                            $save = $row['p_old_price'] - $row['p_current_price'];
+		                                                            $discount = $save * 100 / $row['p_old_price'];
+		                                                        ?>
+		                                                        <span>
+		                                                            <?php echo number_format($discount); ?>%
+		                                                        </span>
+		                                                    </div>
+		                                                <?php endif; ?>
 					                                </div>
 					                            </div>
 					                        </div>
@@ -165,27 +170,27 @@
                         <div class="pagination-number">
                             <ul>
                                 <li style="display: none">
-                                    <a href="shop-v1-root-category.html" title="Previous">
+                                    <a href="" title="Previous">
                                         <i class="fa fa-angle-left"></i>
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <a href="shop-v1-root-category.html">1</a>
+                                    <a href="">1</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">2</a>
+                                    <a href="">2</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">3</a>
+                                    <a href="">3</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">...</a>
+                                    <a href="">...</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">10</a>
+                                    <a href="">10</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html" title="Next">
+                                    <a href="" title="Next">
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                                 </li>

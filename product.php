@@ -83,7 +83,7 @@
 	                            </div>
 	                            <ul class="bread-crumb">
 	                                <li class="has-separator">
-	                                    <a href="home.html">Home</a>
+	                                    <a href="index.php">Home</a>
 	                                </li>
 	                                <li class="has-separator">
 	                                    <a href="<?php echo BASE_URL.'product-category.php?id='.$tcat_id.'&type=top-category' ?>"><?php echo $tcat_name; ?></a>
@@ -146,7 +146,7 @@
                                                 <?php endif; ?>
                                                 <?php
                                             }
-                                        }                                    
+                                        }
                                     ?>
 	                            </div>
 	                        </div>
@@ -166,7 +166,44 @@
 			                                <span><?php echo number_format($p_old_price); ?> RWF</span>
 			                            </div>
 		                            <?php endif; ?>
+			                        <div class="total-save">
+			                            <?php if($p_old_price!=''): ?>
+				                            <span>Save:</span>
+				                            <span>
+					                            	<?php
+					                            		$save = $p_old_price - $p_current_price;
+					                            	?>
+				                            		<?php echo number_format($save); ?> RWF
+				                            </span>
+			                            <?php endif; ?>
+			                        </div>
+		                            <div class="discount-price">
+		                                <?php if($p_old_price!=''): ?>
+			                                <span>Discount:</span>
+			                                <span>
+				                                	<?php
+				                                		$discount = $save * 100 / $p_old_price;
+				                                	?>
+			                                		<?php echo number_format($discount); ?>%
+			                                </span>
+			                            <?php endif; ?>
+		                            </div>
 		                        </div>
+			                    <div class="section-4-sku-information u-s-p-y-14">
+			                        <h6 class="information-heading u-s-m-b-8">Sku Information:</h6>
+			                        <div class="availability">
+			                            <span>Availability:</span>
+			                            <?php if($p_qty == 0): ?>
+			                            	<span style="color: red;">Out of Stock</span>
+			                            <?php else: ?>
+			                            	<span>In Stock</span>
+			                            <?php endif; ?>
+			                        </div>
+			                        <div class="left">
+			                            <span>Only:</span>
+			                            <span><?php echo number_format($p_qty); ?></span>
+			                        </div>
+			                    </div>
 		                        <div class="section-5-product-variants u-s-p-y-14">
 		                            <h6 class="information-heading u-s-m-b-8">Product Variants:</h6>
 		                            <div class="color u-s-m-b-11">
@@ -253,11 +290,19 @@
 	                                <input type="hidden" name="p_name" value="<?php echo $p_name; ?>">
 	                                <input type="hidden" name="p_featured_photo" value="<?php echo $p_featured_photo; ?>">
 	                                <div>
-	                                    <button class="button button-outline-secondary" name="form_add_to_cart" type="submit">Add to cart</button>
-	                                    <form>
-	                                    	<script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-	                                    	<button class="button button-outline-secondary" type="button" onClick="payWithRave()">Pay Now</button>
-	                                    </form>
+			                            <?php if($p_qty == 0): ?>
+			                            	<button class="button button-primary" name="form_add_to_cart" type="submit">
+		                                    	Out of Stock
+		                                    </button>
+			                            <?php else: ?>
+		                                    <button class="button button-outline-secondary" name="form_add_to_cart" type="submit">
+		                                    	Add to cart
+		                                    </button>
+		                                    <form>
+		                                    	<script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+		                                    	<button class="button button-outline-secondary" type="button" onClick="payWithRave()">Pay Now</button>
+		                                    </form>
+			                            <?php endif; ?>
 	                                </div>
 		                        </div>
 	                        </form>
@@ -287,10 +332,9 @@
 	                            <!-- Description-Tab -->
 	                            <div class="tab-pane fade active show" id="description">
 	                                <div class="description-whole-container">
-	                                    <p class="desc-p u-s-m-b-26">This hoodie is full cotton. It includes a muff sewn onto the lower front, and (usually) a drawstring to adjust the hood opening. Throughout the U.S., it is common for middle-school, high-school, and college students to wear this sweatshirts—with or without hoods—that display their respective school names or mascots across the chest, either as part of a uniform or personal preference.
+	                                    <p class="desc-p u-s-m-b-26">
+	                                    	<?php echo $p_description; ?>
 	                                    </p>
-	                                    <img class="desc-img img-fluid u-s-m-b-26" src="images/product/product@3x.jpg" alt="Product">
-	                                    <iframe class="desc-iframe u-s-m-b-45" width="710" height="400" src="images/product/iframe-youtube.jpg" allowfullscreen></iframe>
 	                                </div>
 	                            </div>
 	                            <!-- Description-Tab /- -->
@@ -300,62 +344,42 @@
 	                                    <div class="spec-ul u-s-m-b-50">
 	                                        <h4 class="spec-heading">Key Features</h4>
 	                                        <ul>
-	                                            <li>Heather Grey</li>
-	                                            <li>Black</li>
-	                                            <li>White</li>
+	                                            <li><?php echo $p_name; ?></li>
 	                                        </ul>
 	                                    </div>
 	                                    <div class="u-s-m-b-50">
 	                                        <h4 class="spec-heading">What's in the Box?</h4>
-	                                        <h3 class="spec-answer">1 x hoodie</h3>
-	                                    </div>
-	                                    <div class="spec-table u-s-m-b-50">
-	                                        <h4 class="spec-heading">General Information</h4>
-	                                        <table>
-	                                            <tr>
-	                                                <td>Sku</td>
-	                                                <td>AY536FA08JT86NAFAMZ</td>
-	                                            </tr>
-	                                        </table>
+	                                        <h3 class="spec-answer"><?php echo $p_qty; ?> X</h3>
 	                                    </div>
 	                                    <div class="spec-table u-s-m-b-50">
 	                                        <h4 class="spec-heading">Product Information</h4>
 	                                        <table>
 	                                            <tr>
 	                                                <td>Main Material</td>
-	                                                <td>Cotton</td>
+	                                                <td><?php echo $ecat_name; ?></td>
 	                                            </tr>
 	                                            <tr>
 	                                                <td>Color</td>
-	                                                <td>Heather Grey, Black, White</td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>Sleeves</td>
-	                                                <td>Long Sleeve</td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>Top Fit</td>
-	                                                <td>Regular</td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>Print</td>
-	                                                <td>Not Printed</td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>Neck</td>
-	                                                <td>Round Neck</td>
+	                                                <td>
+	                                                	<?php
+				                                            $statement = $pdo->prepare("SELECT * FROM tbl_color");
+				                                            $statement->execute();
+				                                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+				                                            foreach ($result as $row) {
+				                                                if(in_array($row['color_id'],$color)) { ?>
+				                                        			<?php echo $row['color_name'] . ","; ?>
+				                                        		<?php }
+				                                        	}
+				                                        ?>
+		                                            </td>
 	                                            </tr>
 	                                            <tr>
 	                                                <td>Pieces Count</td>
-	                                                <td>1 piece</td>
+	                                                <td><?php echo $p_qty; ?></td>
 	                                            </tr>
 	                                            <tr>
 	                                                <td>Occasion</td>
 	                                                <td>Casual</td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>Shipping Weight (kg)</td>
-	                                                <td>0.5</td>
 	                                            </tr>
 	                                        </table>
 	                                    </div>
@@ -604,20 +628,19 @@
 	            <!-- Detail-Tabs /- -->
 	            <!-- Different-Product-Section -->
 	            <div class="detail-different-product-section u-s-p-t-80">
-	                <!-- Similar-Products -->
+	                <!-- Recently-View-Products  -->
 	                <section class="section-maker">
 	                    <div class="container">
 	                        <div class="sec-maker-header text-center">
-	                            <h3 class="sec-maker-h3">Similar Products</h3>
+	                            <h3 class="sec-maker-h3">Might Also Like</h3>
 	                        </div>
 	                        <div class="slider-fouc">
 	                            <div class="products-slider owl-carousel" data-item="4">
 	                            	<?php
-				                    	$statement = $pdo->prepare("SELECT * FROM tbl_product t1 JOIN tbl_end_category t2 ON t1.ecat_id = t2.ecat_id JOIN tbl_mid_category t3 ON t2.mcat_id = t3.mcat_id JOIN tbl_top_category t4 ON t3.tcat_id = t4.tcat_id ORDER BY t1.p_id DESC");
-		                                $statement->execute();
-		                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-		                                foreach ($result as $row) {
-		                                    $i++; ?>
+					                    $statement = $pdo->prepare("SELECT * FROM tbl_product t1 JOIN tbl_end_category t2 ON t1.ecat_id = t2.ecat_id JOIN tbl_mid_category t3 ON t2.mcat_id = t3.mcat_id JOIN tbl_top_category t4 ON t3.tcat_id = t4.tcat_id ORDER BY p_id DESC LIMIT 4");
+					                    $statement->execute(array(1));
+					                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+					                    foreach ($result as $row) { ?>
 			                                <div class="item">
 			                                    <div class="image-container">
 			                                        <a class="item-img-wrapper-link" href="product.php?id=<?php echo $row['p_id']; ?>">
@@ -628,94 +651,66 @@
 			                                        <div class="what-product-is">
 			                                            <ul class="bread-crumb">
 	                                                        <li class="has-separator">
-	                                                            <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+	                                                            <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?>
+	                                                            </a>
 	                                                        </li>
 	                                                        <li class="has-separator">
-	                                                            <a href="product-category.php?id=<?php echo $row['mcat_id']; ?>&type=mid-category"><?php echo $row['mcat_name']; ?></a>
+	                                                            <a href="product-category.php?id=<?php echo $row['mcat_id']; ?>&type=mid-category"><?php echo $row['mcat_name']; ?>
+	                                                            </a>
 	                                                        </li>
 	                                                        <li>
-	                                                            <a href="product-category.php?id=<?php echo $row['ecat_id']; ?>&type=end-category"><?php echo $row['ecat_name']; ?></a>
+	                                                            <a href="product-category.php?id=<?php echo $row['ecat_id']; ?>&type=end-category"><?php echo $row['ecat_name']; ?>
+	                                                            </a>
 	                                                        </li>
 	                                                    </ul>
 			                                            <h6 class="item-title">
-	                                                        <a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
-	                                                    </h6>
+			                                                <a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name'] ?></a>
+			                                            </h6>
+			                                            <div class="item-stars">
+			                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+			                                                    <span style='width:0'></span>
+			                                                </div>
+			                                                <span>(0)</span>
+			                                            </div>
 			                                        </div>
 			                                        <div class="price-template">
-			                                            <div class="item-new-price">
-			                                                <?php echo number_format($row['p_current_price']); ?> RWF
-			                                            </div>
-			                                            <div class="item-old-price">
-			                                                <?php if($row['p_old_price'] != ''): ?>
-	                                                            <?php echo number_format($row['p_old_price']); ?> RWF
-	                                                        <?php endif; ?>
-			                                            </div>
-			                                        </div>
+		                                                <div class="item-new-price">
+		                                                    <?php echo number_format($row['p_current_price']); ?> RWF
+		                                                </div>
+		                                                <?php if($row['p_old_price'] != ''): ?>
+		                                                <div class="item-old-price">
+		                                                    <?php echo number_format($row['p_old_price']); ?> RWF
+		                                                </div>
+		                                                <?php endif; ?>
+		                                            </div>
 			                                    </div>
+			                                    <?php if($row['p_old_price'] != ''): ?>
+                                                    <div class="tag discount">
+                                                        <?php
+                                                            $save = $row['p_old_price'] - $row['p_current_price'];
+                                                            $discount = $save * 100 / $row['p_old_price'];
+                                                        ?>
+                                                        <span>
+                                                            <?php echo number_format($discount); ?>%
+                                                        </span>
+                                                    </div>
+                                                <?php endif; ?>
+			                                    <div class="price-template">
+	                                                <a href="product.php?id=<?php echo $row['p_id']; ?>">
+	                                                	<?php if($row['p_qty'] == 0): ?>
+		                                                	<button class="button button-secondary w-100">
+		                                                		Out of Stock
+		                                                	</button>
+	                                                	<?php else: ?>
+	                                                		<button class="button button-primary w-100">
+		                                                		Add to Cart
+		                                                	</button>
+	                                                	<?php endif; ?>
+	                                                </a>
+	                                            </div>
 			                                </div>
 				                        <?php }
 				                    ?>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </section>
-	                <!-- Similar-Products /- -->
-	                <!-- Recently-View-Products  -->
-	                <section class="section-maker">
-	                    <div class="container">
-	                        <div class="sec-maker-header text-center">
-	                            <h3 class="sec-maker-h3">Recently View</h3>
-	                        </div>
-	                        <div class="slider-fouc">
-	                            <div class="products-slider owl-carousel" data-item="4">
-	                                <div class="item">
-	                                    <div class="image-container">
-	                                        <a class="item-img-wrapper-link" href="product.php?id=<?php echo $row['p_id']; ?>">
-	                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-	                                        </a>
-	                                        <div class="item-action-behaviors">
-	                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-	                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-	                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-	                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-	                                        </div>
-	                                    </div>
-	                                    <div class="item-content">
-	                                        <div class="what-product-is">
-	                                            <ul class="bread-crumb">
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v1-root-category.html">Men's</a>
-	                                                </li>
-	                                                <li class="has-separator">
-	                                                    <a href="shop-v2-sub-category.html">Outwear</a>
-	                                                </li>
-	                                                <li>
-	                                                    <a href="shop-v3-sub-sub-category.html">Jackets</a>
-	                                                </li>
-	                                            </ul>
-	                                            <h6 class="item-title">
-	                                                <a href="product.php?id=<?php echo $row['p_id']; ?>">Maire Battlefield Jeep Men's Jacket</a>
-	                                            </h6>
-	                                            <div class="item-stars">
-	                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-	                                                    <span style='width:0'></span>
-	                                                </div>
-	                                                <span>(0)</span>
-	                                            </div>
-	                                        </div>
-	                                        <div class="price-template">
-	                                            <div class="item-new-price">
-	                                                $55.00
-	                                            </div>
-	                                            <div class="item-old-price">
-	                                                $60.00
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="tag hot">
-	                                        <span>HOT</span>
-	                                    </div>
-	                                </div>
 	                            </div>
 	                        </div>
 	                    </div>

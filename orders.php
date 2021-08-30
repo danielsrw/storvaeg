@@ -50,11 +50,12 @@
 				                            <table>
 				                                <thead>
 				                                    <tr>
+				                                        <th>ID</th>
 				                                        <th>Product</th>
 				                                        <th>Amout</th>
 				                                        <th>Status</th>
 				                                        <th>Method</th>
-				                                        <th>ID</th>
+				                                        <th>Payment ID</th>
 				                                        <th>Date</th>
 				                                    </tr>
 				                                </thead>
@@ -164,6 +165,11 @@
 					                                        ?>
 						                                    <tr>
 						                                        <td>
+						                                            <div class="cart-stock">
+						                                                <?php echo $row['id']; ?>
+						                                            </div>
+						                                        </td>
+						                                        <td>
 						                                        	<?php
 						                                                $statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
 						                                                $statement1->execute(array($row['payment_id']));
@@ -196,7 +202,7 @@
 						                                        </td>
 						                                        <td>
 						                                            <div class="cart-stock">
-						                                                <?php echo $row['txnid']; ?>
+						                                                <?php echo $row['payment_id']; ?>
 						                                            </div>
 						                                        </td>
 						                                        <td>

@@ -58,9 +58,9 @@
                         </i>
                     </h4>
                     <h4>Related searches:
-                        <a href="shop-v1-root-category.html">men's clothing</a> ,
-                        <a href="shop-v1-root-category.html">mobiles & tablets</a> ,
-                        <a href="shop-v1-root-category.html">books & audible</a>
+                        <a href="">men's clothing</a> ,
+                        <a href="">mobiles & tablets</a> ,
+                        <a href="">books & audible</a>
                     </h4>
                 </div>
                 <!-- Search-Results /- -->
@@ -112,7 +112,7 @@
                             <div class="product-item col-lg-4 col-md-6 col-sm-6">
                                 <div class="item">
                                     <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.html">
+                                        <a class="item-img-wrapper-link" href="">
                                             <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
                                         </a>
                                     </div>
@@ -120,17 +120,17 @@
                                         <div class="what-product-is">
                                             <ul class="bread-crumb">
                                                 <li class="has-separator">
-                                                    <a href="shop-v1-root-category.html">Men's</a>
+                                                    <a href="">Men's</a>
                                                 </li>
                                                 <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.html">Tops</a>
+                                                    <a href="">Tops</a>
                                                 </li>
                                                 <li>
-                                                    <a href="shop-v3-sub-sub-category.html">Hoodies</a>
+                                                    <a href="">Hoodies</a>
                                                 </li>
                                             </ul>
                                             <h6 class="item-title">
-                                                <a href="single-product.html">Casual Hoodie Full Cotton</a>
+                                                <a href="">Casual Hoodie Full Cotton</a>
                                             </h6>
                                             <div class="item-description">
                                                 <p>This hoodie is full cotton. It includes a muff sewn onto the lower front, and (usually) a drawstring to adjust the hood opening. Throughout the U.S., it is common for middle-school, high-school, and college students to wear this sweatshirts—with or without hoods—that display their respective school names or mascots across the chest, either as part of a uniform or personal preference.
@@ -163,27 +163,27 @@
                         <div class="pagination-number">
                             <ul>
                                 <li style="display: none">
-                                    <a href="shop-v1-root-category.html" title="Previous">
+                                    <a href="" title="Previous">
                                         <i class="fa fa-angle-left"></i>
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <a href="shop-v1-root-category.html">1</a>
+                                    <a href="">1</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">2</a>
+                                    <a href="">2</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">3</a>
+                                    <a href="">3</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">...</a>
+                                    <a href="">...</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html">10</a>
+                                    <a href="">10</a>
                                 </li>
                                 <li>
-                                    <a href="shop-v1-root-category.html" title="Next">
+                                    <a href="" title="Next">
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                                 </li>

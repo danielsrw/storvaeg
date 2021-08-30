@@ -177,7 +177,8 @@
                 }
             }
             if($added == 1) {
-               $error_message1 = 'This product is already added to the shopping cart.';
+               // $error_message1 = 'This product is already added to the shopping cart.';
+               echo "<script type='text/javascript'>alert('This product is already added to the shopping cart');</script>";
             } else {
 
                 $i=0;
@@ -226,7 +227,8 @@
                 $_SESSION['cart_p_name'][$new_key] = $_POST['p_name'];
                 $_SESSION['cart_p_featured_photo'][$new_key] = $_POST['p_featured_photo'];
 
-                $success_message1 = 'Product is added to the cart successfully!';
+                // $success_message1 = 'Product is added to the cart successfully!';
+                echo "<script type='text/javascript'>alert('Product is added to the cart successfully!');</script>";
             }
             
         }
