@@ -11,10 +11,10 @@ $error_message1 = '';
 $success_message1 = '';
 
 // Check if the user is logged in or not
-// if(!isset($_SESSION['user'])) {
-// 	header('location: login2.php');
-// 	exit;
-// }
+if(!isset($_SESSION['user'])) {
+	header('location: login.php');
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +64,8 @@ $success_message1 = '';
 					<ul class="nav navbar-nav">
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								Admin
+								<img src="../assets/uploads/<?php echo $_SESSION['user']['photo']; ?>" class="user-image" alt="User Image">
+								<span class="hidden-xs"><?php echo $_SESSION['user']['full_name']; ?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="user-footer">
@@ -96,7 +97,7 @@ $success_message1 = '';
 			          </a>
 			        </li>
 
-                    <li class="treeview <?php if( ($cur_page == 'size.php') || ($cur_page == 'size-add.php') || ($cur_page == 'size-edit.php') || ($cur_page == 'color.php') || ($cur_page == 'color-add.php') || ($cur_page == 'color-edit.php') || ($cur_page == 'country.php') || ($cur_page == 'country-add.php') || ($cur_page == 'country-edit.php') || ($cur_page == 'shipping-cost.php') || ($cur_page == 'shipping-cost-edit.php') || ($cur_page == 'top-category.php') || ($cur_page == 'top-category-add.php') || ($cur_page == 'top-category-edit.php') || ($cur_page == 'mid-category.php') || ($cur_page == 'mid-category-add.php') || ($cur_page == 'mid-category-edit.php') || ($cur_page == 'end-category.php') || ($cur_page == 'end-category-add.php') || ($cur_page == 'end-category-edit.php') ) {echo 'active';} ?>">
+                    <li class="treeview <?php if( ($cur_page == 'size.php') || ($cur_page == 'size-add.php') || ($cur_page == 'size-edit.php') || ($cur_page == 'color.php') || ($cur_page == 'color-add.php') || ($cur_page == 'color-edit.php') || ($cur_page == 'country.php') || ($cur_page == 'country-add.php') || ($cur_page == 'country-edit.php') || ($cur_page == 'city.php') || ($cur_page == 'city-add.php') || ($cur_page == 'city-edit.php') || ($cur_page == 'district.php') || ($cur_page == 'district-add.php') || ($cur_page == 'district-edit.php') || ($cur_page == 'shipping-cost.php') || ($cur_page == 'shipping-cost-edit.php') || ($cur_page == 'top-category.php') || ($cur_page == 'top-category-add.php') || ($cur_page == 'top-category-edit.php') || ($cur_page == 'mid-category.php') || ($cur_page == 'mid-category-add.php') || ($cur_page == 'mid-category-edit.php') || ($cur_page == 'end-category.php') || ($cur_page == 'end-category-add.php') || ($cur_page == 'end-category-edit.php') ) {echo 'active';} ?>">
                         <a href="#">
                             <i class="fa fa-hand-o-right"></i>
                             <span>Shop Settings</span>
@@ -108,18 +109,13 @@ $success_message1 = '';
                             <li><a href="size.php"><i class="fa fa-circle-o"></i> Size</a></li>
                             <li><a href="color.php"><i class="fa fa-circle-o"></i> Color</a></li>
                             <li><a href="country.php"><i class="fa fa-circle-o"></i> Country</a></li>
+                            <li><a href="city.php"><i class="fa fa-circle-o"></i> City</a></li>
+                            <li><a href="district.php"><i class="fa fa-circle-o"></i> District</a></li>
                             <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i> Shipping Cost</a></li>
                             <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Top Level Category</a></li>
                             <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Mid Level Category</a></li>
                             <li><a href="end-category.php"><i class="fa fa-circle-o"></i> End Level Category</a></li>
                         </ul>
-                    </li>
-
-
-                    <li class="treeview <?php if( ($cur_page == 'company.php') || ($cur_page == 'company-add.php') || ($cur_page == 'company-edit.php') ) {echo 'active';} ?>">
-                        <a href="company.php">
-                            <i class="fa fa-hand-o-right"></i> <span>View / Add Company</span>
-                        </a>
                     </li>
 
 

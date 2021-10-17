@@ -170,10 +170,10 @@
 			                            <?php if($p_old_price!=''): ?>
 				                            <span>Save:</span>
 				                            <span>
-					                            	<?php
-					                            		$save = $p_old_price - $p_current_price;
-					                            	?>
-				                            		<?php echo number_format($save); ?> RWF
+				                            	<?php
+				                            		$save = $p_old_price - $p_current_price;
+				                            	?>
+			                            		<?php echo number_format($save); ?> RWF
 				                            </span>
 			                            <?php endif; ?>
 			                        </div>
@@ -181,10 +181,10 @@
 		                                <?php if($p_old_price!=''): ?>
 			                                <span>Discount:</span>
 			                                <span>
-				                                	<?php
-				                                		$discount = $save * 100 / $p_old_price;
-				                                	?>
-			                                		<?php echo number_format($discount); ?>%
+			                                	<?php
+			                                		$discount = $save * 100 / $p_old_price;
+			                                	?>
+		                                		<?php echo number_format($discount); ?>%
 			                                </span>
 			                            <?php endif; ?>
 		                            </div>
@@ -291,7 +291,7 @@
 	                                <input type="hidden" name="p_featured_photo" value="<?php echo $p_featured_photo; ?>">
 	                                <div>
 			                            <?php if($p_qty == 0): ?>
-			                            	<button class="button button-primary" name="form_add_to_cart" type="submit">
+			                            	<button class="button button-primary">
 		                                    	Out of Stock
 		                                    </button>
 			                            <?php else: ?>

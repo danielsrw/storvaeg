@@ -1,22 +1,34 @@
-<?php
+    <?php
 
-	include('inc/functions.php');
+    	include('inc/functions.php');
 
-	include('partials/css.php')
+    	include('partials/css.php')
 
-?>
+    ?>
 
-<?php
-    if(!isset($_REQUEST['search_text'])) {
-        header('location: index.php');
-        exit;
-    } else {
-        if($_REQUEST['search_text']=='') {
+    <?php
+        if(!isset($_REQUEST['search_text'])) {
             header('location: index.php');
             exit;
+        } else {
+            if($_REQUEST['search_text']=='') {
+                header('location: index.php');
+                exit;
+            }
         }
-    }
-?>
+    ?>
+
+    <?php
+        if(!isset($_REQUEST['search_text'])) {
+            header('location: index.php');
+            exit;
+        } else {
+            if($_REQUEST['search_text']=='') {
+                header('location: index.php');
+                exit;
+            }
+        }
+    ?>
 
 	<title>STORVAEG - SEARCH RESULT</title>
 </head>

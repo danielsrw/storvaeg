@@ -45,7 +45,9 @@
 										<?php echo $row['cust_city']; ?><br>
 										<?php echo $row['cust_state']; ?>
 									</td>
-									<td><?php if($row['cust_status']==1) {echo 'Active';} else {echo 'Inactive';} ?></td>
+									<td>
+										<?php if($row['cust_status']==1) {echo 'Active';} else {echo 'Inactive';} ?>
+									</td>
 									<td>
 										<a href="customer-change-status.php?id=<?php echo $row['cust_id']; ?>" class="btn btn-success btn-xs">Change Status</a>
 									</td>

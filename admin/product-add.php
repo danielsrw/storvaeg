@@ -196,15 +196,15 @@ if(isset($_POST['form1'])) {
 							<div class="col-sm-4">
 								<select name="tcat_id" class="form-control select2 top-cat">
 									<option value="">Select Top Level Category</option>
-									<?php
-									$statement = $pdo->prepare("SELECT * FROM tbl_top_category ORDER BY tcat_name ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);	
-									foreach ($result as $row) {
-										?>
-										<option value="<?php echo $row['tcat_id']; ?>"><?php echo $row['tcat_name']; ?></option>
 										<?php
-									}
+										$statement = $pdo->prepare("SELECT * FROM tbl_top_category ORDER BY tcat_name ASC");
+										$statement->execute();
+										$result = $statement->fetchAll(PDO::FETCH_ASSOC);	
+										foreach ($result as $row) {
+											?>
+											<option value="<?php echo $row['tcat_id']; ?>"><?php echo $row['tcat_name']; ?></option>
+											<?php
+										}
 									?>
 								</select>
 							</div>

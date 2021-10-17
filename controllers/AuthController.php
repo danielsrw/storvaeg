@@ -176,7 +176,7 @@
 	        }
 
 	        if($total==0) {
-	            $error_message .= "Failed to sign in try again".'<br>';
+	            $error_message .= "Wrong email".'<br>';
 	        } else {
 	            //using MD5 form
 	            if( $row_password != md5($cust_password) ) {

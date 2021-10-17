@@ -12,7 +12,9 @@
                     $i++;
                     ?>
                     <li>
-                        <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+                        <a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category">
+                            <?php echo $row['tcat_name']; ?>
+                        </a>
                         <button class="button-icon ion ion-md-add" href="<?php echo $i; ?>"></button>
                         <ul id="<?php echo $i; ?>">
                             <?php
@@ -24,7 +26,9 @@
                                     $j++;
                                     ?>
                                     <li>
-                                        <a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row1['mcat_name']; ?></a>
+                                        <a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category">
+                                            <?php echo $row1['mcat_name']; ?>
+                                        </a>
                                         <button class="button-icon ion ion-md-add" href="<?php echo $i.$j; ?>"></button>
                                         <ul id="<?php echo $i.$j; ?>">
                                             <?php
@@ -36,7 +40,9 @@
                                                     $k++;
                                                     ?>
                                                     <li class="<?php echo $i.$j.$k; ?>">
-                                                        <a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row2['ecat_name']; ?></a>
+                                                        <a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category">
+                                                            <?php echo $row2['ecat_name']; ?>
+                                                        </a>
                                                     </li>
                                                 <?php }
                                             ?>
@@ -61,10 +67,12 @@
                     $statement->execute();
                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($result as $row) { ?>
-                        <input type="checkbox" class="check-box" id="<?php echo $row['size_name']; ?>">
-                        <label class="label-text" for="cbs-01">
-                            <?php echo $row['size_name']; ?>
-                        </label>
+                        <a href="index">
+                            <input type="checkbox" class="check-box" id="<?php echo $row['size_name']; ?>">
+                            <label class="label-text" for="cbs-01">
+                                <?php echo $row['size_name']; ?>
+                            </label>
+                        </a>
                     <?php }
                 ?>
             </div>
@@ -75,18 +83,12 @@
     <div class="facet-filter-by-price">
         <h3 class="title-name">Price</h3>
         <form class="facet-form" action="#" method="post">
-            <!-- Final-Result -->
             <div class="amount-result clearfix">
                 <div class="price-from">RWF 0</div>
-                <div class="price-to">RWF 3000</div>
+                <div class="price-to">RWF <?php echo number_format('100000'); ?></div>
             </div>
-            <!-- Final-Result /- -->
-            <!-- Range-Slider  -->
             <div class="price-filter"></div>
-            <!-- Range-Slider /- -->
-            <!-- Range-Manipulator -->
-            <div class="price-slider-range" data-min="0" data-max="5000" data-default-low="0" data-default-high="3000" data-currency="RWF "></div>
-            <!-- Range-Manipulator /- -->
+            <div class="price-slider-range" data-min="0" data-max="500000" data-default-low="0" data-default-high="100000" data-currency="RWF "></div>
             <button type="submit" class="button button-primary">Filter</button>
         </form>
     </div>

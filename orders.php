@@ -2,7 +2,9 @@
 
 	include('inc/functions.php');
 
-	include('partials/css.php')
+	include('partials/css.php');
+
+    include('inc/checkLogIn.php')
 
 ?>
 
@@ -67,7 +69,7 @@
 									                $statement->execute(array($_SESSION['customer']['cust_email']));
 									                $total_pages = $statement->rowCount();
 
-									                $targetpage = BASE_URL.'customer-order.php';
+									                $targetpage = BASE_URL.'orders.php';
 									                $limit = 10;
 									                $page = @$_GET['page'];
 									                if($page) 

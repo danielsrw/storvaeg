@@ -1,4 +1,4 @@
-<?php require_once('header.php'); ?>
+<?php include('inc/functions.php'); ?>
 
 <?php
 if ( (!isset($_REQUEST['email'])) || (isset($_REQUEST['token'])) )

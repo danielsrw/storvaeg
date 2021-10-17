@@ -80,22 +80,42 @@
 		                                        </select>
 				                            </div>
 				                            <div class="u-s-m-b-30">
+				                                <label for="city">City
+				                                    <span class="astk">*</span>
+				                                </label>
+				                                <select id="city" class="text-field" name="cust_b_city">
+				                                	<option>Choose City</option>
+				                                	<?php
+						                                $statement = $pdo->prepare("SELECT * FROM tbl_city ORDER BY city_id ASC");
+				                                        $statement->execute();
+				                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+				                                        foreach ($result as $row) { ?>
+				                                            <option value="<?php echo $row['city_id']; ?>" <?php if($row['city_id'] == $_SESSION['customer']['cust_b_city']) {echo 'selected';} ?>><?php echo $row['city_name']; ?></option>
+				                                        <?php }
+			                                        ?>
+				                                </select>
+				                            </div>
+				                            <div class="u-s-m-b-30">
+				                                <label for="state">District
+				                                    <span class="astk">*</span>
+				                                </label>
+				                                <select id="state" class="text-field" name="cust_b_state">
+				                                	<option>Choose District</option>
+				                                	<?php
+						                                $statement = $pdo->prepare("SELECT * FROM tbl_districts ORDER BY district_id ASC");
+				                                        $statement->execute();
+				                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+				                                        foreach ($result as $row) { ?>
+				                                            <option value="<?php echo $row['district_id']; ?>" <?php if($row['district_id'] == $_SESSION['customer']['cust_b_state']) {echo 'selected';} ?>><?php echo $row['district_name']; ?></option>
+				                                        <?php }
+			                                        ?>
+				                                </select>
+				                            </div>
+				                            <div class="u-s-m-b-30">
 				                                <label for="address">Address
 				                                    <span class="astk">*</span>
 				                                </label>
 				                                <textarea class="text-area" id="address" name="cust_b_address"><?php echo $_SESSION['customer']['cust_b_address']; ?></textarea>
-				                            </div>
-				                            <div class="u-s-m-b-30">
-				                                <label for="city">City
-				                                    <span class="astk">*</span>
-				                                </label>
-				                                <input type="text" id="city" class="text-field" name="cust_b_city" value="<?php echo $_SESSION['customer']['cust_b_city']; ?>">
-				                            </div>
-				                            <div class="u-s-m-b-30">
-				                                <label for="state">State
-				                                    <span class="astk">*</span>
-				                                </label>
-				                                <input type="text" id="state" class="text-field" name="cust_b_state" value="<?php echo $_SESSION['customer']['cust_b_state']; ?>">
 				                            </div>
 				                            <div class="u-s-m-b-30">
 				                                <label for="zip">Zip Code
@@ -147,22 +167,42 @@
 		                                        </select>
 				                            </div>
 				                            <div class="u-s-m-b-30">
+				                                <label for="city">City
+				                                    <span class="astk">*</span>
+				                                </label>
+				                                <select  id="city" class="text-field" name="cust_s_city">
+				                                	<option>Choose City</option>
+				                                	<?php
+						                                $statement = $pdo->prepare("SELECT * FROM tbl_city ORDER BY city_id ASC");
+				                                        $statement->execute();
+				                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+				                                        foreach ($result as $row) { ?>
+				                                            <option value="<?php echo $row['city_id']; ?>" <?php if($row['city_id'] == $_SESSION['customer']['cust_s_city']) {echo 'selected';} ?>><?php echo $row['city_name']; ?></option>
+				                                        <?php }
+			                                        ?>
+				                                </select>
+				                            </div>
+				                            <div class="u-s-m-b-30">
+				                                <label for="state">District
+				                                    <span class="astk">*</span>
+				                                </label>
+				                                <select id="state" class="text-field" name="cust_s_state">
+				                                	<option>Choose District</option>
+				                                	<?php
+						                                $statement = $pdo->prepare("SELECT * FROM tbl_districts ORDER BY district_id ASC");
+				                                        $statement->execute();
+				                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+				                                        foreach ($result as $row) { ?>
+				                                            <option value="<?php echo $row['district_id']; ?>" <?php if($row['district_id'] == $_SESSION['customer']['cust_s_state']) {echo 'selected';} ?>><?php echo $row['district_name']; ?></option>
+				                                        <?php }
+			                                        ?>
+				                                </select>
+				                            </div>
+				                            <div class="u-s-m-b-30">
 				                                <label for="address">Address
 				                                    <span class="astk">*</span>
 				                                </label>
 				                                <textarea class="text-area" id="address" name="cust_s_address"><?php echo $_SESSION['customer']['cust_s_address']; ?></textarea>
-				                            </div>
-				                            <div class="u-s-m-b-30">
-				                                <label for="city">City
-				                                    <span class="astk">*</span>
-				                                </label>
-				                                <input type="text" id="city" class="text-field" name="cust_s_city" value="<?php echo $_SESSION['customer']['cust_s_city']; ?>">
-				                            </div>
-				                            <div class="u-s-m-b-30">
-				                                <label for="state">State
-				                                    <span class="astk">*</span>
-				                                </label>
-				                                <input type="text" id="state" class="text-field" name="cust_s_state" value="<?php echo $_SESSION['customer']['cust_s_state']; ?>">
 				                            </div>
 				                            <div class="u-s-m-b-30">
 				                                <label for="zip">Zip Code

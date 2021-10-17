@@ -43,6 +43,36 @@
 	        	height: 300
 	        });
 	    });
+		$(".country-cat").on('change',function(){
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+			$.ajax
+			({
+				type: "POST",
+				url: "city.php",
+				data: dataString,
+				cache: false,
+				success: function(html)
+				{
+					$(".city-cat").html(html);
+				}
+			});			
+		});
+		$(".city-cat").on('change',function(){
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+			$.ajax
+			({
+				type: "POST",
+				url: "district.php",
+				data: dataString,
+				cache: false,
+				success: function(html)
+				{
+					$(".district-cat").html(html);
+				}
+			});			
+		});
 		$(".top-cat").on('change',function(){
 			var id=$(this).val();
 			var dataString = 'id='+ id;

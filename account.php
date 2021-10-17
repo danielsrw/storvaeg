@@ -122,12 +122,6 @@
                                         <input type="text" id="phone" name="cust_phone" class="text-field" placeholder="Phone Number">
                                     </div>
                                 </div>
-                                <div class="u-s-m-b-30">
-                                    <label for="address">Address
-                                        <span class="astk">*</span>
-                                    </label>
-                                    <textarea class="text-area" id="address" name="cust_address"></textarea>
-                                </div>
                                 <div class="group-inline u-s-m-b-30">
                                     <div class="group-1 u-s-p-r-16">
                                         <label for="country">Country
@@ -138,19 +132,30 @@
                                             <?php
                                                 $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                                 $statement->execute();
-                                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+                                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
                                                 foreach ($result as $row) { ?>
                                                     <option value="<?php echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
                                                 <?php }
                                             ?>
-                                            
                                         </select>
                                     </div>
                                     <div class="group-2">
                                         <label for="city">City
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="text" id="city" name="cust_city" class="text-field" placeholder="City">
+                                        <select id="city" name="cust_city" class="text-field">
+                                            <option>Choose City</option>
+                                            <?php
+                                                $statement = $pdo->prepare("SELECT * FROM tbl_city ORDER BY city_id ASC");
+                                                $statement->execute();
+                                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                
+                                                foreach ($result as $row) { ?>
+                                                    <option value="<?php echo $row['city_name']; ?>"><?php echo $row['city_name']; ?></option>
+                                                <?php }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="group-inline u-s-m-b-30">
@@ -158,7 +163,18 @@
                                         <label for="state">State
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="text" id="state" name="cust_state" class="text-field" placeholder="State">
+                                        <select id="state" name="cust_state" class="text-field">
+                                            <option>Choose District</option>
+                                            <?php
+                                                $statement = $pdo->prepare("SELECT * FROM tbl_districts ORDER BY district_id ASC");
+                                                $statement->execute();
+                                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                
+                                                foreach ($result as $row) { ?>
+                                                    <option value="<?php echo $row['district_name']; ?>"><?php echo $row['district_name']; ?></option>
+                                                <?php }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="group-2">
                                         <label for="zip">Zip Code
@@ -166,6 +182,12 @@
                                         </label>
                                         <input type="text" id="zip" name="cust_zip" class="text-field" placeholder="Zip Code">
                                     </div>
+                                </div>
+                                <div class="u-s-m-b-30">
+                                    <label for="address">Address
+                                        <span class="astk">*</span>
+                                    </label>
+                                    <textarea class="text-area" id="address" name="cust_address"></textarea>
                                 </div>
                                 <div class="group-inline u-s-m-b-30">
                                     <div class="group-1 u-s-p-r-16">

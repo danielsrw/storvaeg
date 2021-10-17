@@ -6,7 +6,7 @@
 
 	include('inc/checkLogIn.php');
 
-	// include('controllers/ProfileController.php');
+	include('controllers/ProfileController.php');
 
 ?>
 
@@ -74,12 +74,6 @@
 			                                        <input type="text" id="phone" name="cust_phone" class="text-field" value="<?php echo $_SESSION['customer']['cust_phone']; ?>">
 			                                    </div>
 				                            </div>
-				                            <div class="u-s-m-b-30">
-			                                    <label for="address">Address
-			                                        <span class="astk">*</span>
-			                                    </label>
-			                                    <textarea class="text-area" id="address" name="cust_address"><?php echo $_SESSION['customer']['cust_address']; ?></textarea>
-			                                </div>
 				                            <div class="group-inline u-s-m-b-30">
 				                                <div class="group-1 u-s-p-r-16">
 			                                        <label for="country">Country
@@ -100,7 +94,18 @@
 			                                        <label for="city">City
 			                                            <span class="astk">*</span>
 			                                        </label>
-			                                        <input type="text" id="city" name="cust_city" class="text-field" value="<?php echo $_SESSION['customer']['cust_city']; ?>">
+			                                        <select id="city" name="cust_city" class="text-field">
+			                                        	<?php
+							                                $statement = $pdo->prepare("SELECT * FROM tbl_city ORDER BY city_id ASC");
+							                                $statement->execute();
+							                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+							                                foreach ($result as $row) { ?>
+				                                            	<option value="<?php echo $row['city_id']; ?>" <?php if($row['city_id'] == $_SESSION['customer']['cust_city']) {echo 'selected';} ?>>
+				                                            		<?php echo $row['city_name']; ?>
+				                                            	</option>
+					                                        <?php }
+				                                        ?>
+			                                        </select>
 			                                    </div>
 				                            </div>
 				                            <div class="group-inline u-s-m-b-30">
@@ -117,6 +122,12 @@
 			                                        <input type="text" id="zip" name="cust_zip" class="text-field" value="<?php echo $_SESSION['customer']['cust_zip']; ?>">
 			                                    </div>
 				                            </div>
+				                            <div class="u-s-m-b-30">
+			                                    <label for="address">Address
+			                                        <span class="astk">*</span>
+			                                    </label>
+			                                    <textarea class="text-area" id="address" name="cust_address"><?php echo $_SESSION['customer']['cust_address']; ?></textarea>
+			                                </div>
 				                            <div class="u-s-m-b-30">
 				                                <button type="submit" name="updateProfile" class="button button-outline-secondary">Update Profile</button>
 				                            </div>

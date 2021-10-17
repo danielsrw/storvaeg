@@ -6,6 +6,8 @@
 
     include('controllers/CartController.php');
 
+    include('inc/checkLogIn.php')
+
 ?>
 	<title>STORVAEG - CART</title>
 </head>

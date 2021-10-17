@@ -1,6 +1,5 @@
 <?php
-	include('partials/css.php')
-
+	include('partials/css.php');
 ?>
 
 	<title>STORVAEG - PAYMENT SUCCESS</title>
