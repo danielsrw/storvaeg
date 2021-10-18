@@ -1,11 +1,11 @@
 <?php
     if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
-        header('location: index.php');
+        header('location: home.php');
         exit;
     } else {
 
         if( ($_REQUEST['type'] != 'top-category') && ($_REQUEST['type'] != 'mid-category') && ($_REQUEST['type'] != 'end-category') ) {
-            header('location: index.php');
+            header('location: home.php');
             exit;
         } else {
 
@@ -37,7 +37,7 @@
 
             if($_REQUEST['type'] == 'top-category') {
                 if(!in_array($_REQUEST['id'],$top)) {
-                    header('location: index.php');
+                    header('location: home.php');
                     exit;
                 } else {
 
@@ -69,7 +69,7 @@
 
             if($_REQUEST['type'] == 'mid-category') {
                 if(!in_array($_REQUEST['id'],$mid)) {
-                    header('location: index.php');
+                    header('location: home.php');
                     exit;
                 } else {
                     // Getting Title
@@ -92,7 +92,7 @@
 
             if($_REQUEST['type'] == 'end-category') {
                 if(!in_array($_REQUEST['id'],$end)) {
-                    header('location: index.php');
+                    header('location: home.php');
                     exit;
                 } else {
                     // Getting Title

@@ -1,10 +1,10 @@
 <?php
-	$dbhost = 'localhost';
-	$dbname = 'storvaeg';
-	$dbuser = 'root';
-	$dbpass = '';
+	$dbhost = 'remotemysql.com';
+	$dbname = 'RfIy7LIkvK';
+	$dbuser = 'RfIy7LIkvK';
+	$dbpass = 'iwLMR87l0T';
 
-	define("BASE_URL", "http://localhost/projects/projects/st/");
+	define("BASE_URL", "https://www.storvaeg.com/");
 
 	define("ADMIN_URL", BASE_URL . "admin" . "/");
 

@@ -33,31 +33,6 @@
 	        $error_message .= "Phone number required"."<br>";
 	    }
 
-	    if(empty($_POST['cust_address'])) {
-	        $valid = 0;
-	        $error_message .= "Address"."<br>";
-	    }
-
-	    if(empty($_POST['cust_country'])) {
-	        $valid = 0;
-	        $error_message .= "Address required"."<br>";
-	    }
-
-	    if(empty($_POST['cust_city'])) {
-	        $valid = 0;
-	        $error_message .= "City required"."<br>";
-	    }
-
-	    if(empty($_POST['cust_state'])) {
-	        $valid = 0;
-	        $error_message .= "State required"."<br>";
-	    }
-
-	    if(empty($_POST['cust_zip'])) {
-	        $valid = 0;
-	        $error_message .= "Zip code required"."<br>";
-	    }
-
 	    if( empty($_POST['cust_password']) || empty($_POST['cust_re_password']) ) {
 	        $valid = 0;
 	        $error_message .= "Password required"."<br>";
@@ -79,14 +54,8 @@
 	        // saving into the database
 	        $statement = $pdo->prepare("INSERT INTO tbl_customer (
 	                                        cust_name,
-	                                        cust_cname,
 	                                        cust_email,
 	                                        cust_phone,
-	                                        cust_country,
-	                                        cust_address,
-	                                        cust_city,
-	                                        cust_state,
-	                                        cust_zip,
 	                                        cust_b_name,
 	                                        cust_b_cname,
 	                                        cust_b_phone,
@@ -108,17 +77,11 @@
 	                                        cust_datetime,
 	                                        cust_timestamp,
 	                                        cust_status
-	                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 	        $statement->execute(array(
 	                                        strip_tags($_POST['cust_name']),
-	                                        strip_tags($_POST['cust_cname']),
 	                                        strip_tags($_POST['cust_email']),
 	                                        strip_tags($_POST['cust_phone']),
-	                                        strip_tags($_POST['cust_country']),
-	                                        strip_tags($_POST['cust_address']),
-	                                        strip_tags($_POST['cust_city']),
-	                                        strip_tags($_POST['cust_state']),
-	                                        strip_tags($_POST['cust_zip']),
 	                                        '',
 	                                        '',
 	                                        '',
@@ -139,18 +102,13 @@
 	                                        $token,
 	                                        $cust_datetime,
 	                                        $cust_timestamp,
-	                                        0
+	                                        1
 	                                    ));
 
 
 	        unset($_POST['cust_name']);
-	        unset($_POST['cust_cname']);
 	        unset($_POST['cust_email']);
 	        unset($_POST['cust_phone']);
-	        unset($_POST['cust_address']);
-	        unset($_POST['cust_city']);
-	        unset($_POST['cust_state']);
-	        unset($_POST['cust_zip']);
 
 	        $success_message = "Your registration is completed.";
 	    }

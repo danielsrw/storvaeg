@@ -84,8 +84,8 @@
             <div class="row clearfix align-items-center">
                 <div class="col-lg-3 col-md-9 col-sm-6">
                     <div class="brand-logo text-lg-center">
-                        <a href="index.php">
-                            <img src="images/main-logo/storvaeg.png" alt="Storvaeg Logo" class="app-brand-logo w-100">
+                        <a href="home.php">
+                            <img src="images/main-logo/storvaeg.png" alt="Storvaeg Logo" class="app-brand-logo w-50">
                         </a>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <nav>
                         <ul class="mid-nav g-nav">
                             <li class="u-d-none-lg">
-                                <a href="index.php">
+                                <a href="home.php">
                                     <i class="ion ion-md-home u-c-brand"></i>
                                 </a>
                             </li>
@@ -252,7 +252,7 @@
                 <div class="col-lg-9">
                     <ul class="bottom-nav g-nav u-d-none-lg">
                         <li>
-                            <a href="index.php">Home</a>
+                            <a href="home.php">Home</a>
                         </li>
                         <li>
                             <a href="shop.php">Shop</a>

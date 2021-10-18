@@ -48,7 +48,7 @@ if(!isset($_SESSION['user'])) {
 
 		<header class="main-header">
 
-			<a href="index.php" class="logo">
+			<a href="home.php" class="logo">
 				<span class="logo-lg">STORVAEG</span>
 			</a>
 
@@ -91,8 +91,8 @@ if(!isset($_SESSION['user'])) {
       
       			<ul class="sidebar-menu">
 
-			        <li class="treeview <?php if($cur_page == 'index.php') {echo 'active';} ?>">
-			          <a href="index.php">
+			        <li class="treeview <?php if($cur_page == 'home.php') {echo 'active';} ?>">
+			          <a href="home.php">
 			            <i class="fa fa-hand-o-right"></i> <span>Dashboard</span>
 			          </a>
 			        </li>

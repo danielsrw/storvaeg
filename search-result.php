@@ -8,11 +8,11 @@
 
     <?php
         if(!isset($_REQUEST['search_text'])) {
-            header('location: index.php');
+            header('location: home.php');
             exit;
         } else {
             if($_REQUEST['search_text']=='') {
-                header('location: index.php');
+                header('location: home.php');
                 exit;
             }
         }
@@ -20,11 +20,11 @@
 
     <?php
         if(!isset($_REQUEST['search_text'])) {
-            header('location: index.php');
+            header('location: home.php');
             exit;
         } else {
             if($_REQUEST['search_text']=='') {
-                header('location: index.php');
+                header('location: home.php');
                 exit;
             }
         }
@@ -46,7 +46,7 @@
 	                <ul class="bread-crumb">
 	                    <li class="has-separator">
 	                        <i class="ion ion-md-home"></i>
-	                        <a href="index.php">Home</a>
+	                        <a href="home.php">Home</a>
 	                    </li>
 	                    <li class="is-marked">
 	                        <a href="shop.php">Shop</a>

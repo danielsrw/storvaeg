@@ -61,38 +61,25 @@
     <div class="facet-filter-associates">
         <h3 class="title-name">Size</h3>
         <form class="facet-form" action="#" method="post">
-            <div class="associate-wrapper">
-                <?php
-                    $statement = $pdo->prepare("SELECT * FROM tbl_size");
-                    $statement->execute();
-                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($result as $row) { ?>
-                        <a href="index">
-                            <input type="checkbox" class="check-box" id="<?php echo $row['size_name']; ?>">
-                            <label class="label-text" for="cbs-01">
-                                <?php echo $row['size_name']; ?>
-                            </label>
-                        </a>
-                    <?php }
-                ?>
+            <div class="fetch-categories">
+                <ul>
+                    <?php
+                        $statement = $pdo->prepare("SELECT * FROM tbl_size");
+                        $statement->execute();
+                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($result as $row) { ?>
+                            <li>
+                                <a href="">
+                                    <?php echo $row['size_name']; ?>
+                                </a>
+                            </li>
+                        <?php }
+                    ?>
+                </ul>
             </div>
         </form>
     </div>
     <!-- Filter-Size -->
-    <!-- Filter-Price -->
-    <div class="facet-filter-by-price">
-        <h3 class="title-name">Price</h3>
-        <form class="facet-form" action="#" method="post">
-            <div class="amount-result clearfix">
-                <div class="price-from">RWF 0</div>
-                <div class="price-to">RWF <?php echo number_format('100000'); ?></div>
-            </div>
-            <div class="price-filter"></div>
-            <div class="price-slider-range" data-min="0" data-max="500000" data-default-low="0" data-default-high="100000" data-currency="RWF "></div>
-            <button type="submit" class="button button-primary">Filter</button>
-        </form>
-    </div>
-    <!-- Filter-Price /- -->
     <!-- Filter-Free-Shipping -->
     <div class="facet-filter-by-shipping">
         <h3 class="title-name">Shipping</h3>

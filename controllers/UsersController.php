@@ -93,7 +93,7 @@
 					$error_message = "Wrong password" . "<br>";
 				} else {
 					$_SESSION['customer'] = $row;
-					header("location: " . BASE_URL . "index.php");
+					header("location: " . BASE_URL . "home.php");
 				}
 			}
 		}

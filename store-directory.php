@@ -22,7 +22,7 @@
                     <ul class="bread-crumb">
                         <li class="has-separator">
                             <i class="ion ion-md-home"></i>
-                            <a href="index.php">Home</a>
+                            <a href="home.php">Home</a>
                         </li>
                         <li class="is-marked">
                             <a href="store-directory.php">Directory</a>

@@ -21,7 +21,7 @@
 	                <ul class="bread-crumb">
 	                    <li class="has-separator">
 	                        <i class="ion ion-md-home"></i>
-	                        <a href="index.php">Home</a>
+	                        <a href="home.php">Home</a>
 	                    </li>
 	                    <li class="is-marked">
 	                        <a href="shop.php">Shop</a>
@@ -150,7 +150,7 @@
                     </div>
                     <!-- Shop-Right-Wrapper /- -->
                     <!-- Shop-Pagination -->
-                    <div class="pagination-area">
+                    <!-- <div class="pagination-area">
                         <div class="pagination-number">
                             <ul>
                                 <li style="display: none">
@@ -180,7 +180,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Shop-Pagination /- -->
                 </div>
             </div>

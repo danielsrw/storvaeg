@@ -137,8 +137,10 @@
                     </li> -->
                 </ul>
             </div>
-            <p class="copyright-text">Developed &copy; 2021
-                <a href="index.php">STORVAEG</a> All Right Reserved
+            <p class="copyright-text">&copy; 2021 Developed by
+                <a href="https://nexcode.rw/" style="color: black;">
+                    NE<span style="color: red;">X</span>CODE
+                </a> All Right Reserved
             </p>
         </div>
     </div>

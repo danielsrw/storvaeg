@@ -34,7 +34,7 @@
 	                <ul class="bread-crumb">
 	                    <li class="has-separator">
 	                        <i class="ion ion-md-home"></i>
-	                        <a href="index.php">Home</a>
+	                        <a href="home.php">Home</a>
 	                    </li>
 	                    <li class="is-marked">
 	                        <a href="product.php">Detail</a>
@@ -83,7 +83,7 @@
 	                            </div>
 	                            <ul class="bread-crumb">
 	                                <li class="has-separator">
-	                                    <a href="index.php">Home</a>
+	                                    <a href="home.php">Home</a>
 	                                </li>
 	                                <li class="has-separator">
 	                                    <a href="<?php echo BASE_URL.'product-category.php?id='.$tcat_id.'&type=top-category' ?>"><?php echo $tcat_name; ?></a>
@@ -732,7 +732,8 @@
 	    function payWithRave() {
 	        var x = getpaidSetup({
 	            PBFPubKey: API_publicKey,
-	            customer_email: "user@example.com",
+	            customer_email: "<?php echo $_SESSION['customer']['cust_email']; ?>",
+
 	            amount: 2000,
 	            currency: "RWF",
 	            txref: "rave-123456",
@@ -753,7 +754,7 @@
 	                    response.data.chargeResponseCode == "00" ||
 	                    response.data.chargeResponseCode == "0"
 	                ) {
-	                    // redirect to a success page
+	                    document.location = 'lost-password.php';
 	                } else {
 	                    // redirect to a failure page.
 	                }
