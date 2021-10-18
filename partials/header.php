@@ -57,12 +57,12 @@
                                             </a>
                                     </li>
                                 <?php } else { ?>
-                                    <li>
+                                    <!-- <li>
                                         <a href="account.php">
                                             <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
                                             Business Account
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <a href="user.php">
                                             <i class="fas fa-sign-in-alt u-s-m-r-9"></i>

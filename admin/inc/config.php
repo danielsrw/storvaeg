@@ -6,6 +6,13 @@
 
 	define("BASE_URL", "https://www.storvaeg.com/");
 
+	// $dbhost = 'localhost';
+	// $dbname = 'storvaeg';
+	// $dbuser = 'root';
+	// $dbpass = '';
+
+	// define("BASE_URL", "http://localhost/projects/projects/st/");
+
 	define("ADMIN_URL", BASE_URL . "admin" . "/");
 
 	try {

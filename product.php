@@ -203,6 +203,10 @@
 			                            <span>Only:</span>
 			                            <span><?php echo number_format($p_qty); ?></span>
 			                        </div>
+			                        <div class="left">
+			                            <span>Views:</span>
+			                            <span><?php echo number_format($p_total_view); ?></span>
+			                        </div>
 			                    </div>
 		                        <div class="section-5-product-variants u-s-p-y-14">
 		                            <h6 class="information-heading u-s-m-b-8">Product Variants:</h6>
