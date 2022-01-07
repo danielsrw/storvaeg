@@ -758,7 +758,7 @@
 	                    response.data.chargeResponseCode == "00" ||
 	                    response.data.chargeResponseCode == "0"
 	                ) {
-	                    document.location = 'lost-password.php';
+	                    document.location = 'payment_success.php';
 	                } else {
 	                    // redirect to a failure page.
 	                }

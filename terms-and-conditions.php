@@ -5,7 +5,7 @@
 	include('partials/css.php')
 
 ?>
-	<title>STORVAEG - ABOUT</title>
+	<title>STORVAEG - TERMS & CONDITIONS</title>
 </head>
 <body>
 
